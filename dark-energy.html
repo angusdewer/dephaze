@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dephaze - The Dark Energy Problem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #080a0e;
+            --text-color: #c8ced6;
+            --header-color: #eaf0fa;
+            --accent-color: #7ac5d8;
+            --glow-color: rgba(122, 197, 216, 0.35);
+            --code-bg: #10141c;
+            --border-color: #2a3040;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2em;
+            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+        }
+        
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Jura', sans-serif;
+            color: var(--header-color);
+            text-shadow: 0 0 12px var(--glow-color);
+            letter-spacing: 2px;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5em;
+            font-weight: 700;
+        }
+        
+        .equation-box {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent-color);
+            padding: 1.5em;
+            margin: 1em 0;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 1.5px;
+            overflow-x: auto;
+            box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
+        }
+        
+        code {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-size: 0.95em;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2em;
+            font-size: 0.95em;
+        }
+        
+        .results-table th, .results-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .results-table th {
+            font-family: 'Jura', sans-serif;
+            background-color: var(--code-bg);
+            color: var(--header-color);
+            letter-spacing: 1px;
+        }
+        
+        .results-table td:first-child {
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #6a738b;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="anomalies.html#anomalies-list" class="menu-button">← Back to Anomalies</a>
+
+    <div class="container">
+
+        <header>
+            <h1>Case Study : Accelerated Expansion</h1>
+            <p style="font-style: italic; opacity: 0.8;">The Dark Energy Problem</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Mathematical Description of the Problem</h2>
+                
+                <h3>Standard Model (Friedmann Equation)</h3>
+                <p>The temporal evolution of the universe's scale factor (a) is described by the Friedmann equation. To explain acceleration (ä > 0), an extra term, the cosmological constant (Λ), is required:</p>
+                <div class="equation-box" style="font-size:1rem;">ä/a = -4πG/3 * (ρ + 3p) + Λ/3</div>
+                <p>For acceleration to occur, the Λ term must dominate over gravitational attraction.</p>
+
+                <h3>The Problem</h3>
+                <p>Λ represents a "dark energy" of unknown origin, and its theoretical value is wrong by 120 orders of magnitude.</p>
+            </section>
+            
+            <section>
+                <h2>The Dephaze Model Derivation</h2>
+                <p>In the Dephaze model, acceleration is an <strong>apparent effect</strong> arising from the discrepancy between the universe's fundamental timescale (<code>s = ln(t_phase)</code>) and our measured, local clock time (<code>t</code>).</p>
+                
+                <h3>Fundamental vs. Measured Time</h3>
+                <p>Let's assume the universe's scale factor (a) expands linearly in the system's natural phase time (s). This represents the simplest state after the Φ³ projection:</p>
+                <div class="equation-box">da/ds = H<sub>s</sub> (a constant expansion rate in phase time)</div>
+                
+                <h3>The Inertia of Time</h3>
+                <p>The <code>d/d(ln t_phase)</code> term in the master equation implies that the "speed" of physical processes (our atomic clocks, our biology) is not constant relative to phase time. Due to the system's "time-inertia," local clock time (t) passes progressively slower compared to fundamental phase time (s). Mathematically, this means the derivative <code>ds/dt</code> is an increasing function. We can assume the simplest increasing relationship:</p>
+                <div class="equation-box">ds/dt = k * t (where k is a constant)</div>
+
+                <h3>Derivation of Apparent Acceleration</h3>
+                <p>Using the chain rule, we can express the measured velocity (ȧ = da/dt) and the measured acceleration (ä = d²a/dt²) in terms of our clock time:</p>
+                <p><code>ȧ = da/dt = (da/ds) * (ds/dt) = H<sub>s</sub> * (k*t)</code></p>
+                <p>This gives the measured expansion velocity as:</p>
+                <p><code>ȧ(t) = (H<sub>s</sub>*k) * t</code></p>
+                <p>This shows that the measured expansion velocity increases linearly with time. Differentiating with respect to t one more time gives:</p>
+                 <div class="equation-box">ä = dȧ/dt = H<sub>s</sub> * k = const > 0</div>
+                <p>This result demonstrates that in a universe expanding linearly in its own natural time, its expansion will appear to be constantly accelerating when measured by our "slowing" clocks.</p>
+            </section>
+            
+            <section>
+                <h2>Comparison of Results</h2>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Standard Model</th>
+                            <th>Dephaze Model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Explanation for Acceleration</td>
+                            <td>Hypothetical dark energy (Λ)</td>
+                            <td>The inertia of time (discrepancy between measured and fundamental timescales)</td>
+                        </tr>
+                        <tr>
+                            <td>Required New Entity</td>
+                            <td>Yes (a new dark energy field)</td>
+                            <td>No (an intrinsic property of time)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 1992-2025 Dephaze Manufacture | Angus Dewer</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

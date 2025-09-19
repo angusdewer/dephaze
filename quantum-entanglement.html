@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dephaze - Quantum Entanglement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #080a0e;
+            --text-color: #c8ced6;
+            --header-color: #eaf0fa;
+            --accent-color: #7ac5d8;
+            --glow-color: rgba(122, 197, 216, 0.35);
+            --code-bg: #10141c;
+            --border-color: #2a3040;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2em;
+            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+        }
+        
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Jura', sans-serif;
+            color: var(--header-color);
+            text-shadow: 0 0 12px var(--glow-color);
+            letter-spacing: 2px;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5em;
+            font-weight: 700;
+        }
+        
+        .equation-box {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent-color);
+            padding: 1.5em;
+            margin: 1em 0;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 1.5px;
+            overflow-x: auto;
+            box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
+        }
+        
+        code {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-size: 0.95em;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2em;
+            font-size: 0.95em;
+        }
+        
+        .results-table th, .results-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .results-table th {
+            font-family: 'Jura', sans-serif;
+            background-color: var(--code-bg);
+            color: var(--header-color);
+            letter-spacing: 1px;
+        }
+        
+        .results-table td:first-child {
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #6a738b;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="anomalies.html#anomalies-list" class="menu-button">← Back to Anomalies</a>
+
+    <div class="container">
+
+        <header>
+            <h1>Case Study : Quantum Entanglement & Non-Locality</h1>
+            <p style="font-style: italic; opacity: 0.8;">The Nature of Spacetime Correlation</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Mathematical Description of the Problem</h2>
+                
+                <h3>Standard Model (Quantum Mechanics)</h3>
+                <p>A two-particle entangled state is described by a non-separable wave function in Hilbert space: <code>|Ψ⟩ = 1/√2 (|↑⟩ₐ|↓⟩ₑ + |↓⟩ₐ|↑⟩ₑ)</code>. A measurement is said to cause a non-local "collapse" of this wave function.</p>
+                
+            </section>
+            
+            <section>
+                <h2>The Dephaze Model Derivation</h2>
+                <p>In the Dephaze model, non-locality is not a paradox but a fundamental property of the system.</p>
+                
+                <h3>A Single, Global Field</h3>
+                <p>There are no fundamentally separate particles. Reality is a single, indivisible phase field (Ψ). "Entangled particles" are simply two correlated local excitations of this same global field, Ψ(x), at locations xₐ and xₑ.</p>
+                <div class="equation-box">Ψ<sub>entangled_state</sub> = Ψ<sub>global</sub>(x) where Spin(xₐ) = -Spin(xₑ)</div>
+                
+                <h3>Measurement as a Global State Change</h3>
+                <p>A measurement at point xₐ is not a local event that "sends information" to xₑ. A measurement is an interaction between the measuring device and the <strong>entire global field</strong>, which forces the field into a new state, Ψ'<sub>global</sub>.</p>
+                <div class="equation-box" style="font-size: 1rem;">Interaction(Device, Ψ<sub>global</sub>) → Ψ'<sub>global</sub></div>
+                
+                <h3>Instantaneous Correlation</h3>
+                <p>Since the entire field changes state as a single entity, the correlations are preserved by definition in the new state Ψ'<sub>global</sub>. The properties of the field at point xₑ instantly reflect the new global state because point xₑ is itself part of the changed field. No information transfer is necessary because the information (the state of the field) is inherently non-local to begin with. The "spooky action at a distance" is a natural consequence of a global field state change.</p>
+
+            </section>
+            
+            <section>
+                <h2>Comparison of Results</h2>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Standard Model</th>
+                            <th>Dephaze Model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Explanation for Non-Locality</td>
+                            <td>The mysterious, axiomatic "collapse" of the wave function</td>
+                            <td>A natural property of a single, global phase field describing reality</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 1992-2025 Dephaze Manufacture | Angus Dewer</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

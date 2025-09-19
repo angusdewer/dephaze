@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dephaze - Astrodynamical Anomalies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #080a0e;
+            --text-color: #c8ced6;
+            --header-color: #eaf0fa;
+            --accent-color: #7ac5d8;
+            --glow-color: rgba(122, 197, 216, 0.35);
+            --code-bg: #10141c;
+            --border-color: #2a3040;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Ez teszi a leugrást simává */
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2em;
+            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+        }
+        
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Jura', sans-serif;
+            color: var(--header-color);
+            text-shadow: 0 0 12px var(--glow-color);
+            letter-spacing: 2px;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5em;
+            font-weight: 700;
+        }
+        
+        .equation-box {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent-color);
+            padding: 1.5em;
+            margin: 2em 0;
+            font-size: 1.1rem;
+            text-align: left;
+            letter-spacing: 1.5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        .styled-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .styled-list li {
+            background: var(--code-bg);
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 15px;
+            margin-bottom: 10px;
+        }
+        
+        .styled-list li strong {
+            color: var(--accent-color);
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        .anomaly-buttons a {
+            display: block;
+            background: var(--code-bg);
+            border-left: 3px solid var(--border-color);
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: 'Jura', sans-serif;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .anomaly-buttons a:hover {
+            color: var(--header-color);
+            border-left-color: var(--accent-color);
+            box-shadow: inset 3px 0 0 0 var(--accent-color), 0 0 15px var(--glow-color);
+            transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #6a738b;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="menu-button">← Back to Dephaze Core</a>
+
+    <div class="container">
+
+        <header>
+            <h1>Astrodynamical Anomalies</h1>
+            <p style="font-style: italic; opacity: 0.8;">Dephaze-based Resolutions to Modern Cosmological Puzzles.</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Overview</h2>
+                <p>
+                    Standard cosmological models rely on placeholder concepts such as dark matter and dark energy to reconcile observational data with flawed theoretical frameworks. The Dephaze model resolves these anomalies not by adding exotic substances, but by correcting the foundational understanding of spacetime, inertia, and goal-directed dynamics.
+                </p>
+            </section>
+            
+            <section>
+                <h2>The Mathematical Framework</h2>
+                <h3>Formal Mathematical Representation</h3>
+                <div class="equation-box">
+                    d/d(ln t<sub>phase</sub>) Ψ(x,t; φ³) = D∇²Ψ(x,t; φ⁻³) + G|Ψ(x,t; φ⁻³)|²Ψ(x,t; φ⁻³) - Mφ⁻³ + δ(t-t₀)Φ³[Ψ](x; φ⁻³) - i[Λ(Ψ),Ψ] + ∇⋅F + KΨs(x,t; φ⁻³) + Σ(x,t; φ⁻³)
+                </div>
+                
+                <h3>Mathematical Structure of the Equation</h3>
+                <ul class="styled-list">
+                    <li><strong>d/d(ln t<sub>phase</sub>) Ψ(x,t; φ³):</strong> Creative Evolution Term</li>
+                    <li><strong>D∇²Ψ(x,t; φ⁻³):</strong> Diffusion</li>
+                    <li><strong>G|Ψ(x,t; φ⁻³)|²Ψ(x,t; φ⁻³):</strong> Nonlinearity</li>
+                    <li><strong>Mφ⁻³:</strong> Inertia</li>
+                    <li><strong>δ(t-t₀)Φ³[Ψ](x; φ⁻³):</strong> Projective Projection</li>
+                    <li><strong>i[Λ(Ψ),Ψ]:</strong> Coherence Commutator</li>
+                    <li><strong>∇⋅F(x,t):</strong> External Flux</li>
+                    <li><strong>KΨs(x,t; φ⁻³):</strong> Phase Memory</li>
+                    <li><strong>Σ(x,t; φ⁻³):</strong> Stochastic Noise</li>
+                </ul>
+                
+                <h3>Distinctive Mathematical Features</h3>
+                 <ul class="styled-list">
+                    <li><strong>Projective Dynamics (Φ³):</strong> The Φ³ operator enables a goal-directed dynamic that is not directly measurable, as any measurement collapses the state to its φ⁻³ representation.</li>
+                    <li><strong>Coherence Feedback ([Λ(Ψ),Ψ]):</strong> The Λ(Ψ) operator creates a non-linear feedback mechanism dependent on the system's state, representing conscious influence.</li>
+                    <li><strong>Logarithmic Timescale (ln t<sub>phase</sub>):</strong> Describes evolution along an internal, phase-dependent timescale rather than absolute, linear time.</li>
+                    <li><strong>Universal Phase-Structure (φ⁻³):</strong> The systematic presence of the φ⁻³ parameter represents a global, structuring background dynamic that *is* measurable as the fabric of spacetime.</li>
+                </ul>
+            </section>
+
+            <!-- A JAVÍTÁS ITT TÖRTÉNT: id="anomalies-list" hozzáadva -->
+            <section id="anomalies-list">
+                <h2>Anomalies Addressed</h2>
+                <div class="anomaly-buttons">
+                    <a href="dark-matter.html">The Dark Matter Problem (Galaxy Rotation Curves)</a>
+                    <a href="dark-energy.html">The Dark Energy Problem (Accelerated Expansion)</a>
+                    <a href="flyby-anomaly.html">The Flyby Anomaly</a>
+                    <a href="pioneer-anomaly.html">The Pioneer Anomaly</a>
+                    <a href="quantum-entanglement.html">Quantum Entanglement & Non-Locality</a>
+                </div>
+            </section>
+            
+        </main>
+
+        <footer>
+            <p>© 1992-2025 Dephaze Manufacture | Angus Dewer</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

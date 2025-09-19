@@ -18,7 +18,6 @@
             --border-color: #2a3040;
         }
 
-        /* MÓDOSÍTÁS: Vízszintes görgetés letiltása */
         html, body {
             overflow-x: hidden;
         }
@@ -32,6 +31,31 @@
             margin: 0;
             padding: 2em;
             text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+        }
+        
+        /* ÚJ MENÜ GOMB STÍLUS */
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
         }
 
         .container {
@@ -202,6 +226,9 @@
 </head>
 <body>
 
+    <!-- ÚJ NAVIGÁCIÓS GOMB -->
+    <a href="anomalies.html" class="menu-button">Solution to Astrodynamical Anomalies</a>
+
     <div class="container">
 
         <header>
@@ -213,6 +240,8 @@
         </header>
 
         <main>
+            <!-- A FŐOLDAL TARTALMA ITT FOLYTATÓDIK... -->
+            
             <section>
                 <h2>The Chronology of Reality Formation</h2>
                 <p>The Dephaze model describes a goal-directed, non-local, and evolutionary process. Reality is a projection from a fixed informational singularity (Ψb) toward a self-generated, neural target (the Imago), while aligning itself to an eternal, universal equilibrium axis (Ω₀).</p>

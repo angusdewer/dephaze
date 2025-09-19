@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dephaze - The Dark Matter Problem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #080a0e;
+            --text-color: #c8ced6;
+            --header-color: #eaf0fa;
+            --accent-color: #7ac5d8;
+            --glow-color: rgba(122, 197, 216, 0.35);
+            --code-bg: #10141c;
+            --border-color: #2a3040;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2em;
+            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+        }
+        
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Jura', sans-serif;
+            color: var(--header-color);
+            text-shadow: 0 0 12px var(--glow-color);
+            letter-spacing: 2px;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5em;
+            font-weight: 700;
+        }
+        
+        .equation-box {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent-color);
+            padding: 1.5em;
+            margin: 1em 0;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 1.5px;
+            overflow-x: auto;
+            box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
+        }
+        
+        code {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-size: 0.95em;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2em;
+            font-size: 0.95em;
+        }
+        
+        .results-table th, .results-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .results-table th {
+            font-family: 'Jura', sans-serif;
+            background-color: var(--code-bg);
+            color: var(--header-color);
+            letter-spacing: 1px;
+        }
+        
+        .results-table td:first-child {
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #6a738b;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- UPDATED LINK -->
+    <a href="anomalies.html#anomalies-list" class="menu-button">← Back to Anomalies</a>
+
+    <div class="container">
+
+        <header>
+            <h1>Case Study: Galaxy Rotation Curve</h1>
+            <p style="font-style: italic; opacity: 0.8;">The Dark Matter Problem</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Mathematical Description of the Problem</h2>
+                
+                <h3>Standard Expected Behavior (Newton/GR)</h3>
+                <p>The centripetal force (<code>F_c = mv²/r</code>) is equated with the gravitational force (<code>F_g = GmM(r)/r²</code>). Orbital velocity is derived as:</p>
+                <div class="equation-box">v(r)² = GM(r)/r</div>
+                <p>At the edge of a galaxy, where <code>M(r) ≈ const</code>, the expected behavior is:</p>
+                <div class="equation-box" style="font-size: 1rem;">v(r) ∝ 1/√r <br>(Velocity should decrease with distance)</div>
+
+                <h3>Observed Anomaly</h3>
+                <p>In reality, observations show that <code>v(r) ≈ const</code> in the outer regions of galaxies.</p>
+
+                <h3>Standard Explanation</h3>
+                <p>To resolve this, a hypothetical <strong>dark matter halo</strong> is introduced with a mass distribution of <code>M_dark(r) ∝ r</code>.</p>
+            </section>
+            
+            <section>
+                <h2>The Dephaze Model Derivation</h2>
+                <p>In the Dephaze model, motion is governed by an effective potential (<code>U_eff</code>) composed of the standard gravitational potential and the intrinsic potential of the Dephaze field.</p>
+                <div class="equation-box">U<sub>eff</sub>(r) = U<sub>gravity</sub>(r) + U<sub>dephaze</sub>(r)</div>
+                
+                <h3>Source of the Dephaze Potential</h3>
+                <p>At large distances, the <code>Φ³</code> projective operator dominates, projecting the galaxy's field into a stable topology that creates an effective potential. This potential asymptotically approaches a logarithmic form:</p>
+                <div class="equation-box">U<sub>dephaze</sub>(r) ≈ C * ln(r)</div>
+                
+                <h3>Derivation of the Velocity Curve</h3>
+                <p>The square of the orbital velocity is proportional to the gradient of the effective potential: <code>v(r)² = r * dU_eff/dr</code>. This leads to:</p>
+                <div class="equation-box">v(r)² = GM(r)/r + C</div>
+
+                <h3>Asymptotic Behavior</h3>
+                <p>In the outer regions of a galaxy (as <code>r → ∞</code>), the <code>GM(r)/r</code> term approaches zero, and the constant <code>C</code> from the Dephaze potential becomes dominant. Therefore, the limit is:</p>
+                <div class="equation-box" style="font-size: 1rem;">lim (r→∞) v(r)² = C<br>Which means: v(r) ≈ √C = const</div>
+            </section>
+            
+            <section>
+                <h2>Comparison of Results</h2>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Standard Model</th>
+                            <th>Dephaze Model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Explanation for Flat Curve</td>
+                            <td>Hypothetical dark matter halo (M<sub>dark</sub> ∝ r)</td>
+                            <td>Logarithmic potential from the Φ³ projective term</td>
+                        </tr>
+                        <tr>
+                            <td>Required New Entity</td>
+                            <td>Yes (a new dark matter particle)</td>
+                            <td>No (an intrinsic property of the field)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 1992-2025 Dephaze Manufacture | Angus Dewer</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
