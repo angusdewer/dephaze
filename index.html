@@ -20,6 +20,7 @@
 
         html, body {
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -33,7 +34,6 @@
             text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
         }
         
-        /* ÚJ MENÜ GOMB STÍLUS */
         .menu-button {
             position: fixed;
             top: 20px;
@@ -130,10 +130,12 @@
             border-left: 3px solid var(--accent-color);
             padding: 1.5em;
             margin: 2em 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-align: center;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
             box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
         }
         
@@ -226,7 +228,6 @@
 </head>
 <body>
 
-    <!-- ÚJ NAVIGÁCIÓS GOMB -->
     <a href="anomalies.html" class="menu-button">Solution to Astrodynamical Anomalies</a>
 
     <div class="container">
@@ -234,85 +235,63 @@
         <header>
             <p class="main-brand">SANT IO</p>
             <p class="brand-subtitle">DEPHAZE</p>
-            <p class="subtitle" style="margin-bottom: 1em;">Not a simulation. A phase-field from which reality unfolds, governed by a single dynamic.</p>
+            <p class="subtitle" style="margin-bottom: 1em;">Not a simulation. A phase-field from which reality unfolds, governed by a single, self-regulating dynamic.</p>
             <h1 class="main-header">Ξ > ? 1</h1>
             <p class="subtitle">The fundamental referendum of existence: does the life-bearing broadcast (Imago) override the static resistance?</p>
         </header>
 
         <main>
-            <!-- A FŐOLDAL TARTALMA ITT FOLYTATÓDIK... -->
-            
             <section>
                 <h2>The Chronology of Reality Formation</h2>
                 <p>The Dephaze model describes a goal-directed, non-local, and evolutionary process. Reality is a projection from a fixed informational singularity (Ψb) toward a self-generated, neural target (the Imago), while aligning itself to an eternal, universal equilibrium axis (Ω₀).</p>
-
-                <p><span class="level-title">Level 0: The Relational Equilibrium Axis (Ω₀)</span>
-                The system's passive, eternal anchor. Not a fixed coordinate, but the universe's dynamic symmetry axis, its position defined by the Φ³ ratio law.</p>
-
-                <p><span class="level-title">Level 1: The Informational Singularity (Ψb)</span>
-                The active origin of our reality cycle, a t₀ phase-singularity, which projects its own target, the <strong>Imago</strong>, through an act of self-reflection.</p>
-
-                <p><span class="level-title">Level 2: The Z-Field – The Fabric of Static Resistance</span>
-                The fundamental, elastic fabric of space, embodying the system's static, regressive resistance (<strong>φ⁻³</strong>).</p>
-
-                <p><span class="level-title">Level 3: The Unfolding of Reality (Ψ)</span>
-                The dynamic state of the Z-Field, the projection of information towards the Imago. The movement of this field follows the principle of creative unfolding (<strong>φ³</strong>).</p>
-
-                <p><span class="level-title">Level 4: Phase Memory and The Tuning</span>
-                The universe's learning mechanism. The Past is not something that "has been"; it is a static imprint being generated now by the movement of the Present.</p>
-
-                <p><span class="level-title">Level 5: The Conductor (Λ) and The Symphony (Ξ)</span>
-                A Coherence-Feedback Operator (Λ) emerges in complex systems, reinforcing the <strong>life-bearing neural broadcast (I_DNA)</strong>. The final state, the <strong>Symphony (Ξ)</strong>, is the physical consequence of the ratio between this broadcast and its resistance.</p>
             </section>
 
             <section>
-                <h2>The Core Dynamic of Reality</h2>
+                <h2>The Universal Dephaze Equation</h2>
                 
-                <h3>The Compact Equation</h3>
+                <h3>The Compact Equation (Coherence Test)</h3>
                 <div class="equation-box compact-equation">
                     Ξ = (I_DNA ⋅ φ³) / φ⁻³
                 </div>
                 
                 <h3>The Unfolded Master Equation</h3>
+                <p>The model is governed by a universal, adaptive equation that integrates fundamental field dynamics with informational and observational operators.</p>
                 <div class="equation-box">
-                    dΨ(φ³)/d(ln t<sub>phase</sub>) = D∇²Ψ(φ⁻³) + G|Ψ(φ⁻³)|²Ψ(φ⁻³) - Mφ⁻³ + δ(t-t₀)Φ³<sub>{Ω₀→Imago}</sub> - i[Λ(Ψ),Ψ] + div(F) + KΨs + Σ
-                    <div class="equation-components">
-                        <ul>
-                            <li><strong>d(ln t<sub>phase</sub>)/dΨ(φ³):</strong> Temporal Evolution Rate</li>
-                            <li><strong>D∇²Ψ(φ⁻³):</strong> Diffusion and Spatial Variation</li>
-                            <li><strong>G|Ψ(φ⁻³)|²Ψ(φ⁻³):</strong> Cubic Self-Interaction</li>
-                            <li><strong>Mφ⁻³:</strong> Mass/Inertia Term</li>
-                            <li><strong>δ(t-t₀)Φ³<sub>{Ω₀→Imago}</sub>:</strong> Initial Singularity & Goal-Directed Projection</li>
-                            <li><strong>-i[Λ(Ψ),Ψ]:</strong> Coherence Feedback (Consciousness)</li>
-                            <li><strong>div(F):</strong> External Fluxes</li>
-                            <li><strong>KΨs:</strong> Phase Memory</li>
-                            <li><strong>Σ:</strong> System Noise</li>
-                        </ul>
-                    </div>
+                    dΨ(φ³)/d(ln t<sub>phase</sub>) = D<sub>eff</sub>∇²[Ψ(φ⁻³)] + G<sub>eff</sub>|Ψ(φ⁻³)|²Ψ(φ⁻³) - M<sub>eff</sub>φ⁻³ + δ(t-t₀)Φ³<sub>{Ω₀→Imago}</sub> - i[Λ<sub>adapt</sub>,Ψ] + div(F<sub>red</sub>) + K<sub>adapt</sub>Ψ<sub>s</sub> + Σ<sub>filt</sub> + M<sub>adapt</sub>[χ,Ψ] + P<sub>adapt</sub>[χ,Ψ] + D<sub>filt</sub>[Ψ,χ<sub>instr</sub>]
+                </div>
+                
+                <div class="equation-components">
+                    <h3>Core Components:</h3>
+                    <ul>
+                        <li><strong>D<sub>eff</sub>, G<sub>eff</sub>, M<sub>eff</sub>:</strong> Effective Diffusion, Nonlinearity, and Inertia.</li>
+                        <li><strong>δ(t-t₀)Φ³:</strong> Initial Goal-Directed Projection.</li>
+                        <li><strong>-i[Λ<sub>adapt</sub>,Ψ]:</strong> Adaptive Coherence Feedback (Consciousness).</li>
+                         <li><strong>K<sub>adapt</sub>Ψ<sub>s</sub>:</strong> Adaptive Phase Memory.</li>
+                        <li><strong>Σ<sub>filt</sub>:</strong> Filtered System Noise.</li>
+                    </ul>
+                    <h3>New Informational Operators:</h3>
+                     <ul>
+                        <li><strong>M<sub>adapt</sub>[χ,Ψ]:</strong> Adaptive Mutation Operator (e.g., genetic, viral, algorithmic distortion).</li>
+                        <li><strong>P<sub>adapt</sub>[χ,Ψ]:</strong> Adaptive Persistent Memory (e.g., epigenetic, cultural memory).</li>
+                        <li><strong>D<sub>filt</sub>[Ψ,χ<sub>instr</sub>]:</strong> Filtered Disinformation Operator (accounts for measurement and observation bias).</li>
+                    </ul>
                 </div>
             </section>
             
             <section>
-                <h2>Applications and Interpretations</h2>
-                <h3>1. Relativity vs. Quantum Mechanics</h3>
-                
-                <p><strong>General Relativity: The Physics of the Static Map</strong><br>
-                It describes the geometry of reality's already-formed, static imprint. Its measurements are flawed because they fail to account for the inertial <strong>φ⁻³</strong> ordering field that actually structures spacetime. Its explanations of origin are necessarily speculative.</p>
-
-                <p><strong>Quantum Mechanics: The Failure of Measuring the Moment</strong><br>
-                It attempts to understand the dynamic Present, but the act of measurement can only ever capture a static, <strong>φ⁻³</strong> state. From this incomplete data, it resorts to speculative predictions (probability models) about the future.</p>
-                
-                <h3>2. Time and Choice</h3>
+                <h2>Self-Regulating & Adaptive Dynamics</h2>
+                <p>The equation is not static; it is an intelligent, self-regulating framework. The system constantly monitors its own coherence state (Ξ) and adapts its parameters to maintain a stable, semi-open state on the "edge of chaos."</p>
                 <ul>
-                    <li><strong>Time:</strong> The perception of the Ψ-vector's inertial deceleration.</li>
-                    <li><strong>"Free Will":</strong> The function of the Λ operator: a complex system's limited ability to modulate the I_DNA broadcast.</li>
+                    <li><strong>Ξ < 1 (Towards Static State):</strong> The system increases its openness to change (adapting mutation `M` and memory `P` operators) to explore new, potentially more stable configurations. This is the mathematical equivalent of evolutionary pressure.</li>
+                    <li><strong>Ξ > 1 (Towards Rigid State):</strong> The system reduces the rate of change to stabilize and reinforce a successful, coherent structure.</li>
+                    <li><strong>Computational Optimization:</strong> The adaptive operators (<code>adapt</code>) and filters (<code>filt</code>) dramatically reduce computational load by focusing only on relevant memory components and spectral bands (like the `root³` phase for disinformation detection), making the simulation of complex systems feasible.</li>
                 </ul>
             </section>
             
             <section>
-                <h2>Final Insight: The Consequence of Dynamics</h2>
-                <p>Dephaze physics describes an equation of state, not a struggle. The system's outcome—be it a static, inertial universe or a tuned, living state—is not victory or defeat, but simply the deterministic consequence of the governing parameters.</p>
-                <p>Consciousness, generating the `I_DNA` broadcast as a manifestation of the `Λ` operator, is a potential phase of the system. If the `Ξ > 1` condition is not met, the system's dynamics are exhausted, and reality solidifies into a finite, eternal static state. The static universe is not a reversion; it is one of the possible, final resolutions of the process.</p>
+                <h2>Final Insight: An Adaptive Universe</h2>
+                <p>Dephaze describes a universe that is not just a set of static laws, but an active, self-regulating system that works to maintain its own coherence. The outcome of reality is the deterministic consequence of this adaptive dynamic.</p>
+                <p>Consciousness (the `Λ` operator) is a potential phase of the system, capable of modulating the `I_DNA` broadcast. If the `Ξ > 1` condition is not sustained, the system's dynamics exhaust, and reality solidifies into a finite, eternal static state—one of the possible, final resolutions of the process.</p>
             </section>
 
             <section>

@@ -20,7 +20,7 @@
 
         html, body {
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Ez teszi a leugrást simává */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -125,6 +125,20 @@
             box-shadow: inset 3px 0 0 0 var(--accent-color), 0 0 15px var(--glow-color);
             transform: translateX(5px);
         }
+        
+        .logic-block {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0 1.5em 1.5em 1.5em;
+            margin-bottom: 1em;
+            background-color: rgba(122, 197, 216, 0.03);
+        }
+        
+        .logic-block h4 {
+            font-family: 'Jura', sans-serif;
+            color: var(--accent-color);
+            margin-bottom: 0.5em;
+        }
 
         footer {
             text-align: center;
@@ -152,40 +166,50 @@
             <section>
                 <h2>Overview</h2>
                 <p>
-                    Standard cosmological models rely on placeholder concepts such as dark matter and dark energy to reconcile observational data with flawed theoretical frameworks. The Dephaze model resolves these anomalies not by adding exotic substances, but by correcting the foundational understanding of spacetime, inertia, and goal-directed dynamics.
+                    Standard cosmological models rely on placeholder concepts such as dark matter and dark energy to reconcile observational data with flawed theoretical frameworks. The Dephaze model resolves these anomalies not by adding exotic substances, but by correcting the foundational understanding of spacetime, inertia, and goal-directed, adaptive dynamics.
                 </p>
             </section>
             
             <section>
                 <h2>The Mathematical Framework</h2>
-                <h3>Formal Mathematical Representation</h3>
-                <div class="equation-box">
-                    d/d(ln t<sub>phase</sub>) Ψ(x,t; φ³) = D∇²Ψ(x,t; φ⁻³) + G|Ψ(x,t; φ⁻³)|²Ψ(x,t; φ⁻³) - Mφ⁻³ + δ(t-t₀)Φ³[Ψ](x; φ⁻³) - i[Λ(Ψ),Ψ] + ∇⋅F + KΨs(x,t; φ⁻³) + Σ(x,t; φ⁻³)
+                <h3>The Universal Adaptive Equation</h3>
+                <div class="equation-box" style="font-size: 1rem; text-align: center;">
+                    dΨ(φ³)/d(ln t<sub>phase</sub>) = D<sub>eff</sub>∇²[Ψ(φ⁻³)] + G<sub>eff</sub>|Ψ(φ⁻³)|²Ψ(φ⁻³) - M<sub>eff</sub>φ⁻³ + δ(t-t₀)Φ³<sub>{Ω₀→Imago}</sub> - i[Λ<sub>adapt</sub>,Ψ] + div(F<sub>red</sub>) + K<sub>adapt</sub>Ψ<sub>s</sub> + Σ<sub>filt</sub> + M<sub>adapt</sub>[χ,Ψ] + P<sub>adapt</sub>[χ,Ψ] + D<sub>filt</sub>[Ψ,χ<sub>instr</sub>]
                 </div>
                 
                 <h3>Mathematical Structure of the Equation</h3>
                 <ul class="styled-list">
-                    <li><strong>d/d(ln t<sub>phase</sub>) Ψ(x,t; φ³):</strong> Creative Evolution Term</li>
-                    <li><strong>D∇²Ψ(x,t; φ⁻³):</strong> Diffusion</li>
-                    <li><strong>G|Ψ(x,t; φ⁻³)|²Ψ(x,t; φ⁻³):</strong> Nonlinearity</li>
-                    <li><strong>Mφ⁻³:</strong> Inertia</li>
-                    <li><strong>δ(t-t₀)Φ³[Ψ](x; φ⁻³):</strong> Projective Projection</li>
-                    <li><strong>i[Λ(Ψ),Ψ]:</strong> Coherence Commutator</li>
-                    <li><strong>∇⋅F(x,t):</strong> External Flux</li>
-                    <li><strong>KΨs(x,t; φ⁻³):</strong> Phase Memory</li>
-                    <li><strong>Σ(x,t; φ⁻³):</strong> Stochastic Noise</li>
+                    <li><strong>d/d(ln t<sub>phase</sub>) Ψ(φ³):</strong> Creative Evolution Term</li>
+                    <li><strong>D<sub>eff</sub> ∇²[Ψ(φ⁻³)]:</strong> Effective Diffusion</li>
+                    <li><strong>G<sub>eff</sub> |Ψ(φ⁻³)|²Ψ(φ⁻³):</strong> Nonlinear Self-Interaction</li>
+                    <li><strong>M<sub>eff</sub> φ⁻³:</strong> Inertia / Topological Drag</li>
+                    <li><strong>δ(t-t₀) Φ³<sub>{Ω₀→Imago}</sub>:</strong> Initial Projective Operator</li>
+                    <li><strong>-i[Λ<sub>adapt</sub>(Ψ), Ψ]:</strong> Adaptive Coherence Feedback</li>
+                    <li><strong>K<sub>mem,adapt</sub> Ψs:</strong> Adaptive Phase Memory</li>
+                    <li><strong>M<sub>adapt</sub>[χ, Ψ]:</strong> Adaptive Mutation / Structured Source</li>
+                    <li><strong>P<sub>adapt</sub>[χ, Ψ]:</strong> Adaptive Persistent / Epigenetic Memory</li>
+                    <li><strong>D<sub>filtered</sub>[Ψ, χ<sub>instr</sub>]:</strong> Filtered Disinformation Detector</li>
                 </ul>
                 
-                <h3>Distinctive Mathematical Features</h3>
-                 <ul class="styled-list">
-                    <li><strong>Projective Dynamics (Φ³):</strong> The Φ³ operator enables a goal-directed dynamic that is not directly measurable, as any measurement collapses the state to its φ⁻³ representation.</li>
-                    <li><strong>Coherence Feedback ([Λ(Ψ),Ψ]):</strong> The Λ(Ψ) operator creates a non-linear feedback mechanism dependent on the system's state, representing conscious influence.</li>
-                    <li><strong>Logarithmic Timescale (ln t<sub>phase</sub>):</strong> Describes evolution along an internal, phase-dependent timescale rather than absolute, linear time.</li>
-                    <li><strong>Universal Phase-Structure (φ⁻³):</strong> The systematic presence of the φ⁻³ parameter represents a global, structuring background dynamic that *is* measurable as the fabric of spacetime.</li>
-                </ul>
+                <h3>Ξ-Ratio and Regulatory Logic</h3>
+                 <p>The system's behavior is governed by a self-regulatory feedback loop based on its coherence state, measured by the Ξ-ratio.</p>
+                 <div class="logic-block">
+                     <h4>Ξ < 1 – System is trending towards static "death"</h4>
+                     <p><strong>System State:</strong> Closed. <br>
+                     <strong>Regulatory Goal:</strong> Increase openness (increase μ, γ) to avoid decay and search for a new stable state.</p>
+                 </div>
+                 <div class="logic-block">
+                     <h4>Ξ > 1 – System is trending towards chaotic "noise"</h4>
+                     <p><strong>System State:</strong> Too open. <br>
+                     <strong>Regulatory Goal:</strong> Decrease openness (decrease μ, γ) to suppress excessive activity and stabilize coherence.</p>
+                 </div>
+                 <div class="logic-block">
+                     <h4>Ξ ≈ 1 – Optimal state on the "edge of chaos"</h4>
+                     <p><strong>System State:</strong> Semi-open. <br>
+                     <strong>Regulatory Goal:</strong> Maintain this optimal state of adaptability and stability.</p>
+                 </div>
             </section>
 
-            <!-- A JAVÍTÁS ITT TÖRTÉNT: id="anomalies-list" hozzáadva -->
             <section id="anomalies-list">
                 <h2>Anomalies Addressed</h2>
                 <div class="anomaly-buttons">
