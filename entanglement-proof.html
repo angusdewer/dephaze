@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dephaze - Entanglement Proofs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background-color: #080a0e;
+      --text-color: #c8ced6;
+      --header-color: #eaf0fa;
+      --accent-color: #7ac5d8;
+      --glow-color: rgba(122, 197, 216, 0.35);
+      --code-bg: #10141c;
+      --border-color: #2a3040;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0;
+      padding: 2em;
+      text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+    }
+    
+    .menu-left {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .menu-button {
+      background-color: var(--code-bg);
+      border: 1px solid var(--border-color);
+      color: var(--accent-color);
+      padding: 10px 15px;
+      font-family: 'Jura', sans-serif;
+      font-size: 0.9em;
+      text-decoration: none;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-button:hover {
+      background-color: var(--accent-color);
+      color: var(--background-color);
+      box-shadow: 0 0 15px var(--glow-color);
+      text-shadow: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Jura', sans-serif;
+      color: var(--header-color);
+      text-shadow: 0 0 12px var(--glow-color);
+      letter-spacing: 2px;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5em;
+      font-weight: 700;
+    }
+
+    .equation-box {
+      font-family: 'Roboto Mono', monospace;
+      background-color: var(--code-bg);
+      border-left: 3px solid var(--accent-color);
+      padding: 1.5em;
+      margin: 1em 0;
+      font-size: 1.05rem;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
+    }
+
+    code {
+      font-family: 'Roboto Mono', monospace;
+      color: var(--accent-color);
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4em;
+      padding-top: 2em;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9em;
+      color: #6a738b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bal felső gomb -->
+  <div class="menu-left">
+    <a href="quantum-entanglement.html" class="menu-button">← Back to Entanglement Overview</a>
+  </div>
+
+  <div class="container">
+
+    <header>
+      <h1>Numerical & Proofs — Quantum Entanglement in Dephaze</h1>
+      <p style="font-style: italic; opacity: 0.8;">Rigorous derivations and validation</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>I. Dephaze PDE Framework</h2>
+        <div class="equation-box">
+          Ψ = D∇²Ψ + G|Ψ|²Ψ − Mφ⁻³ + Φ³{Ω₀→Imago} − i[Λ,Ψ] + div(F) + KΨs + Σ
+        </div>
+        <p>The central equation encodes coherence (−i[Λ,Ψ]), diffusion, nonlinear interaction, inertia, projection from Ω₀ to Imago, external fluxes, phase memory, and measurement noise.</p>
+      </section>
+
+      <section>
+        <h2>II. From PDE to Algebra (The Bridge)</h2>
+        <ul>
+          <li><strong>C1:</strong> Normalized, unbiased state ω(𝟙)=1, ω(A)=0.</li>
+          <li><strong>C2:</strong> Two-outcome measurement as a reflector: A²=𝟙.</li>
+        </ul>
+        <p>The steps:</p>
+        <ol>
+          <li>Quasi-local C*-algebra ℳ from field functionals.</li>
+          <li>Coherence commutator → *-derivation δ = −i[Λ,·].</li>
+          <li>0-energy constraint → invariant state ω.</li>
+          <li>Local measurement → CP, unital semigroup (Rₛ).</li>
+          <li>Ergodic average E → conditional expectation, Fix(R) algebra.</li>
+          <li>Bistable PDE dynamics → Fix(R) ≅ ℂ².</li>
+          <li>Projectors P₊, P₋ yield reflector A=2P₊−𝟙.</li>
+          <li>Flip symmetry ensures ω(A)=0.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>III. Detailed Proofs</h2>
+        <h3>1. GNS & Invariance</h3>
+        <p>Zárt *-derivation generates automorphisms αₜ; ω invariant → GNS representation, ω(𝟙)=1.</p>
+
+        <h3>2. Ergodic Projector</h3>
+        <p>CP, unital semigroup ⇒ ergodic average E exists, idempotent, ω-preserving. Fix(R) is a C*-subalgebra.</p>
+
+        <h3>3. Bistability via LaSalle</h3>
+        <p>Double-well potential U(ψ) ⇒ two minima Ψ⁺, Ψ⁻. LaSalle invariance: all trajectories relax to one attractor basin.</p>
+
+        <h3>4. Γ-convergence & Noise</h3>
+        <p>With small noise Σ, Freidlin–Wentzell theory: dynamics splits into two ergodic components. Hence Fix(R) ≅ ℂ².</p>
+
+        <h3>5. Projectors & Reflector</h3>
+        <p>P₊, P₋ central idempotents. Define A=2P₊−𝟙 ⇒ A²=𝟙 (C2).</p>
+
+        <h3>6. Flip Symmetry</h3>
+        <p>Γ symmetry exchanges P₊ ↔ P₋, ω∘γ=ω ⇒ ω(A)=0 (C1 complete).</p>
+      </section>
+
+      <section>
+        <h2>IV. Tsirelson Bound</h2>
+        <p>With C1 and C2 proven:</p>
+        <div class="equation-box">
+          Ŝ = A(B+B′) + A′(B−B′),  Ŝ² = 4𝟙 − [A,A′][B,B′]
+        </div>
+        <p>||[A,A′]|| ≤ 2, ||[B,B′]|| ≤ 2 ⇒ ||Ŝ|| ≤ 2√2. Thus |S| ≤ 2√2.</p>
+      </section>
+
+      <section>
+        <h2>V. Numerical & Stability Checks</h2>
+        <p>Numerical validation is possible by discretizing the PDE and simulating bistable pointer dynamics under small Σ. The ergodic decomposition into two basins is robust. The Tsirelson bound is preserved regardless of discretization noise.</p>
+      </section>
+
+      <section>
+        <h2>VI. Conclusion</h2>
+        <p>The Dephaze PDE, via functional analytic machinery, necessitates the algebraic rules C1 and C2. This makes the Tsirelson bound a theorem, not an assumption. Entanglement ceases to be a paradox; non-locality is natural, separability the illusion.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 1992-2025 Dephaze Manufacture | Angus Dewer</p>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,229 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dephaze - The Pioneer Anomaly</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --background-color: #080a0e;
-            --text-color: #c8ced6;
-            --header-color: #eaf0fa;
-            --accent-color: #7ac5d8;
-            --glow-color: rgba(122, 197, 216, 0.35);
-            --code-bg: #10141c;
-            --border-color: #2a3040;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dephaze - The Pioneer Anomaly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background-color: #080a0e;
+      --text-color: #c8ced6;
+      --header-color: #eaf0fa;
+      --accent-color: #7ac5d8;
+      --glow-color: rgba(122, 197, 216, 0.35);
+      --code-bg: #10141c;
+      --border-color: #2a3040;
+    }
 
-        html, body {
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0;
+      padding: 2em;
+      text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+    }
 
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            line-height: 1.7;
-            margin: 0;
-            padding: 2em;
-            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
-        }
-        
-        .menu-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            color: var(--accent-color);
-            padding: 10px 15px;
-            font-family: 'Jura', sans-serif;
-            font-size: 0.9em;
-            text-decoration: none;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
+    .menu-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background-color: var(--code-bg);
+      border: 1px solid var(--border-color);
+      color: var(--accent-color);
+      padding: 10px 15px;
+      font-family: 'Jura', sans-serif;
+      font-size: 0.9em;
+      text-decoration: none;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
 
-        .menu-button:hover {
-            background-color: var(--accent-color);
-            color: var(--background-color);
-            box-shadow: 0 0 15px var(--glow-color);
-            text-shadow: none;
-        }
+    .menu-button:hover {
+      background-color: var(--accent-color);
+      color: var(--background-color);
+      box-shadow: 0 0 15px var(--glow-color);
+      text-shadow: none;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-        h1, h2, h3 {
-            font-family: 'Jura', sans-serif;
-            color: var(--header-color);
-            text-shadow: 0 0 12px var(--glow-color);
-            letter-spacing: 2px;
-            margin-top: 2em;
-            margin-bottom: 1em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5em;
-            font-weight: 700;
-        }
-        
-        .equation-box {
-            font-family: 'Roboto Mono', monospace;
-            background-color: var(--code-bg);
-            border-left: 3px solid var(--accent-color);
-            padding: 1.5em;
-            margin: 2em 0;
-            font-size: 1.2rem;
-            text-align: center;
-            letter-spacing: 1.5px;
-            overflow-x: auto;
-            box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
-        }
-        
-        code {
-            font-family: 'Roboto Mono', monospace;
-            color: var(--accent-color);
-        }
-        
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2em;
-            font-size: 0.85em; /* Kisebb betűméret a több oszlop miatt */
-        }
-        
-        .results-table th, .results-table td {
-            border: 1px solid var(--border-color);
-            padding: 8px; /* Kisebb padding */
-            text-align: center;
-        }
-        
-        .results-table th {
-            font-family: 'Jura', sans-serif;
-            background-color: var(--code-bg);
-            color: var(--header-color);
-            letter-spacing: 1px;
-        }
-        
-        .results-table td:nth-child(3) {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-        
-        .results-table .highlight {
-            background-color: rgba(122, 197, 216, 0.05);
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 4em;
-            padding-top: 2em;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: #6a738b;
-        }
+    h1, h2, h3 {
+      font-family: 'Jura', sans-serif;
+      color: var(--header-color);
+      text-shadow: 0 0 12px var(--glow-color);
+      letter-spacing: 2px;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5em;
+      font-weight: 700;
+    }
 
-    </style>
+    .equation-box {
+      font-family: 'Roboto Mono', monospace;
+      background-color: var(--code-bg);
+      border-left: 3px solid var(--accent-color);
+      padding: 1.5em;
+      margin: 2em 0;
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 1.5px;
+      overflow-x: auto;
+      box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
+    }
+
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2em;
+      font-size: 0.9em;
+    }
+
+    .results-table th, .results-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px;
+      text-align: center;
+    }
+
+    .results-table th {
+      font-family: 'Jura', sans-serif;
+      background-color: var(--code-bg);
+      color: var(--header-color);
+      letter-spacing: 1px;
+    }
+
+    .results-table td:nth-child(3) {
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    .results-table .highlight {
+      background-color: rgba(122, 197, 216, 0.05);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4em;
+      padding-top: 2em;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9em;
+      color: #6a738b;
+    }
+  </style>
 </head>
 <body>
 
-    <a href="anomalies.html#anomalies-list" class="menu-button">← Back to Anomalies</a>
+  <a href="anomalies.html#anomalies-list" class="menu-button">← Back to Anomalies</a>
 
-    <div class="container">
+  <div class="container">
 
-        <header>
-            <h1>Case Study: The Pioneer Anomaly</h1>
-            <p style="font-style: italic; opacity: 0.8;">Inertial Drag, Field Interference, and Temporal Inertia</p>
-        </header>
+    <header>
+      <h1>Case Study: The Pioneer Anomaly</h1>
+      <p style="font-style: italic; opacity: 0.8;">Thermal Recoil vs. Time-Scale Drift</p>
+    </header>
 
-        <main>
-            <section>
-                <h2>The Correct Interpretation: A Three-Fold Phenomenon</h2>
-                <p>The Pioneer Anomaly is not a single, constant effect. It is a superposition of three fundamental Dephaze phenomena, all of which are invisible to the framework of General Relativity.</p>
-                <ol>
-                    <li><strong>Inertial Drag (Average Deceleration):</strong> The primary effect is a persistent deceleration caused by the probe pushing against the Ψ-field's intrinsic inertia (the <code>M<sub>eff</sub>φ⁻³</code> term), creating a constant energy loss.</li>
-                    <li><strong>Field Interference (Signal Fluctuation):</strong> The "elasticity" of the Ψ-field means the probe generates a complex wake. The probe's synchronization with this interference pattern causes short-term fluctuations in the measured acceleration, sometimes even appearing as a slight positive (accelerating) anomaly when constructive interference occurs.</li>
-                    <li><strong>Temporal Inertia (Systematic Drift):</strong> A secondary, cumulative effect where our local measurement clock (<code>t</code>) progressively slows down relative to the universe's fundamental phase time (<code>t_phase</code>). Over the 22-year mission, this appears as a growing, apparent acceleration that slightly counteracts the inertial drag.</li>
-                </ol>
-            </section>
+    <main>
+      <section>
+        <h2>Observed Signal</h2>
+        <p>The Pioneer 10/11 probes showed a persistent Doppler drift:</p>
+        <div class="equation-box">
+          ḟ ≈ +6 × 10⁻⁹ Hz/s at f ≈ 2.29 GHz<br>
+          ⇒ α = ḟ / f ≈ 2.6 × 10⁻¹⁸ s⁻¹
+        </div>
+        <p>This is equivalent to an apparent sunward acceleration of</p>
+        <div class="equation-box">
+          aₚ ≈ (8.74 ± 1.33) × 10⁻¹⁰ m/s²
+        </div>
+      </section>
 
-            <section>
-                <h2>Data Analysis: Exposing the Layers of Reality</h2>
-                <p>A chronological analysis of the Pioneer 10 data allows us to separate these effects. The Dephaze simulation provides the baseline inertial drag, while the difference between this baseline and the observed data reveals the cumulative effect of temporal inertia.</p>
+      <section>
+        <h2>Integration over 30 years</h2>
+        <p>The time-scale interpretation gives:</p>
+        <div class="equation-box" style="font-size:1rem;">
+          Δt ≈ ½ α T² ≈ 1–3 s (over 30 years)
+        </div>
+        <p>Thus the anomaly is not only a force-like effect, but can be equivalently viewed as a tiny drift in the underlying phase-time.</p>
+      </section>
 
-                <div class="equation-box" style="font-size:1rem;">
-                   a<sub>observed</sub> ≈ (a<sub>inertial_drag</sub> + a<sub>interference</sub>) + a<sub>disinfo_temporal</sub>
-                </div>
-                
-                <table class="results-table">
-                    <thead>
-                        <tr>
-                            <th>Time Period</th>
-                            <th>Standard Model (GR) Prediction</th>
-                            <th>Dephaze Prediction (Pure Inertial Drag)</th>
-                            <th>Observed Anomaly (Measurement)</th>
-                            <th>Disinformation (Inferred Temporal Effect)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1980-1985</td>
-                            <td>0 m/s²</td>
-                            <td>-8.79 × 10⁻¹⁰ m/s²</td>
-                            <td>-8.77 × 10⁻¹⁰ m/s²</td>
-                            <td>+0.02 × 10⁻¹⁰ m/s²</td>
-                        </tr>
-                        <tr class="highlight">
-                            <td>1986-1991</td>
-                             <td>0 m/s²</td>
-                            <td>-8.79 × 10⁻¹⁰ m/s²</td>
-                            <td>-8.75 × 10⁻¹⁰ m/s²</td>
-                            <td>+0.04 × 10⁻¹⁰ m/s²</td>
-                        </tr>
-                        <tr>
-                            <td>1992-1997</td>
-                             <td>0 m/s²</td>
-                            <td>-8.79 × 10⁻¹⁰ m/s²</td>
-                            <td>-8.72 × 10⁻¹⁰ m/s²</td>
-                            <td>+0.07 × 10⁻¹⁰ m/s²</td>
-                        </tr>
-                        <tr class="highlight">
-                            <td>1998-2002</td>
-                             <td>0 m/s²</td>
-                            <td>-8.79 × 10⁻¹⁰ m/s²</td>
-                            <td>-8.69 × 10⁻¹⁰ m/s²</td>
-                            <td>+0.10 × 10⁻¹⁰ m/s²</td>
-                        </tr>
-                    </tbody>
-                </table>
-                 <p style="text-align:center; font-style:italic; opacity:0.8; font-size:0.9em;">(Note: Observed values are illustrative of the trend. Dephaze Inertial Drag is constant as it's a fundamental property.)</p>
-            </section>
-            
-            <section>
-                <h2>Conclusion: A Complete Experimental Proof</h2>
-                <p>The table clearly shows the failure of the Standard Model and the success of Dephaze. The "disinformation" is not random noise; it is a systematic, growing deviation that perfectly matches the predicted effect of temporal inertia. Physicists, lacking a model for field inertia or temporal inertia, were left with an "unexplained anomaly."</p>
-                <p>The Pioneer mission did not find a mystery. It inadvertently conducted a 22-year-long experiment that proved three fundamental principles of Dephaze physics:</p>
-                <ol>
-                    <li>The Ψ-field has a measurable **inertial drag**.</li>
-                    <li>The Ψ-field is **elastic** and allows for interference.</li>
-                    <li>Local time has a measurable **temporal inertia**.</li>
-                </ol>
-            </section>
-        </main>
+      <section>
+        <h2>Mainstream vs. Dephaze Interpretation</h2>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Mainstream (PRL 2012)</th>
+              <th>Dephaze Interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cause of aₚ</td>
+              <td>Thermal recoil from RTG & antenna reflections</td>
+              <td>Equivalent time-scale drift (α = ḟ/f)</td>
+            </tr>
+            <tr class="highlight">
+              <td>Mathematical link</td>
+              <td>aₚ(t)</td>
+              <td>α(t) = 2aₚ/c</td>
+            </tr>
+            <tr>
+              <td>Long-term effect</td>
+              <td>Secular acceleration (decreasing with Pu-238 decay)</td>
+              <td>Cumulative Δt ≈ seconds / decades</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-        <footer>
-            <p>© 1992-2025 Dephaze Manufacture | Angus Dewer</p>
-        </footer>
+      <section>
+        <h2>Falsifiable Prediction</h2>
+        <p>Dephaze makes a concrete, testable prediction:</p>
+        <ul>
+          <li>After subtracting the thermal model, residual Doppler data should contain step-like offsets.</li>
+          <li>These should correlate with Δcosδ (geometry of Earth–probe line of sight).</li>
+          <li>Expected amplitude: 0.1–1 mm/s equivalent ΔV.</li>
+          <li>If absent → Dephaze falsified. If present → new physical layer revealed.</li>
+        </ul>
+      </section>
 
-    </div>
+      <section>
+        <h2>Conclusion</h2>
+        <p>The Pioneer anomaly is both:</p>
+        <ol>
+          <li>A thermal recoil effect (dynamic, mainstream consensus).</li>
+          <li>An equivalent time-scale drift (chronometric, Dephaze view).</li>
+        </ol>
+        <p>The two are not contradictory, but complementary. The open question is whether residual Δcosδ-correlated steps exist — a falsifiable test that can deepen our understanding of spacetime structure.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 1992-2025 Dephaze Manufacture | Pioneer Study Unit</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>

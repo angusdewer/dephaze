@@ -1,209 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dephaze - Quantum Entanglement</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --background-color: #080a0e;
-            --text-color: #c8ced6;
-            --header-color: #eaf0fa;
-            --accent-color: #7ac5d8;
-            --glow-color: rgba(122, 197, 216, 0.35);
-            --code-bg: #10141c;
-            --border-color: #2a3040;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dephaze - Quantum Entanglement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background-color: #080a0e;
+      --text-color: #c8ced6;
+      --header-color: #eaf0fa;
+      --accent-color: #7ac5d8;
+      --glow-color: rgba(122, 197, 216, 0.35);
+      --code-bg: #10141c;
+      --border-color: #2a3040;
+    }
 
-        html, body {
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    html, body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
 
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            line-height: 1.7;
-            margin: 0;
-            padding: 2em;
-            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
-        }
-        
-        .menu-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            color: var(--accent-color);
-            padding: 10px 15px;
-            font-family: 'Jura', sans-serif;
-            font-size: 0.9em;
-            text-decoration: none;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0;
+      padding: 2em;
+      text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+    }
+    
+    .menu-left, .menu-right {
+      position: fixed;
+      top: 20px;
+      z-index: 1000;
+    }
 
-        .menu-button:hover {
-            background-color: var(--accent-color);
-            color: var(--background-color);
-            box-shadow: 0 0 15px var(--glow-color);
-            text-shadow: none;
-        }
+    .menu-left {
+      left: 20px;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .menu-right {
+      right: 20px;
+    }
 
-        h1, h2, h3 {
-            font-family: 'Jura', sans-serif;
-            color: var(--header-color);
-            text-shadow: 0 0 12px var(--glow-color);
-            letter-spacing: 2px;
-            margin-top: 2em;
-            margin-bottom: 1em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5em;
-            font-weight: 700;
-        }
-        
-        .equation-box {
-            font-family: 'Roboto Mono', monospace;
-            background-color: var(--code-bg);
-            border-left: 3px solid var(--accent-color);
-            padding: 1.5em;
-            margin: 1em 0;
-            font-size: 1.1rem;
-            text-align: center;
-            letter-spacing: 1.5px;
-            overflow-x: auto;
-            box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
-        }
-        
-        code {
-            font-family: 'Roboto Mono', monospace;
-            color: var(--accent-color);
-            font-size: 0.95em;
-        }
+    .menu-button {
+      background-color: var(--code-bg);
+      border: 1px solid var(--border-color);
+      color: var(--accent-color);
+      padding: 10px 15px;
+      font-family: 'Jura', sans-serif;
+      font-size: 0.9em;
+      text-decoration: none;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
 
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2em;
-            font-size: 0.95em;
-        }
-        
-        .results-table th, .results-table td {
-            border: 1px solid var(--border-color);
-            padding: 12px 15px;
-            text-align: left;
-        }
-        
-        .results-table th {
-            font-family: 'Jura', sans-serif;
-            background-color: var(--code-bg);
-            color: var(--header-color);
-            letter-spacing: 1px;
-        }
-        
-        .results-table td:first-child {
-            font-weight: bold;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 4em;
-            padding-top: 2em;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: #6a738b;
-        }
+    .menu-button:hover {
+      background-color: var(--accent-color);
+      color: var(--background-color);
+      box-shadow: 0 0 15px var(--glow-color);
+      text-shadow: none;
+    }
 
-    </style>
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Jura', sans-serif;
+      color: var(--header-color);
+      text-shadow: 0 0 12px var(--glow-color);
+      letter-spacing: 2px;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5em;
+      font-weight: 700;
+    }
+
+    .equation-box {
+      font-family: 'Roboto Mono', monospace;
+      background-color: var(--code-bg);
+      border-left: 3px solid var(--accent-color);
+      padding: 1.5em;
+      margin: 1em 0;
+      font-size: 1.05rem;
+      text-align: center;
+      overflow-x: auto;
+      box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
+    }
+
+    code {
+      font-family: 'Roboto Mono', monospace;
+      color: var(--accent-color);
+      font-size: 0.95em;
+    }
+
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2em;
+      font-size: 0.95em;
+    }
+    
+    .results-table th, .results-table td {
+      border: 1px solid var(--border-color);
+      padding: 12px 15px;
+      text-align: left;
+    }
+    
+    .results-table th {
+      font-family: 'Jura', sans-serif;
+      background-color: var(--code-bg);
+      color: var(--header-color);
+      letter-spacing: 1px;
+    }
+    
+    .results-table td:first-child {
+      font-weight: bold;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 4em;
+      padding-top: 2em;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9em;
+      color: #6a738b;
+    }
+  </style>
 </head>
 <body>
 
+  <!-- Bal felső gomb -->
+  <div class="menu-left">
     <a href="anomalies.html#anomalies-list" class="menu-button">← Back to Anomalies</a>
+  </div>
 
-    <div class="container">
+  <!-- Jobb felső gomb -->
+  <div class="menu-right">
+    <a href="entanglement-proof.html" class="menu-button">Numerical & Proofs</a>
+  </div>
 
-        <header>
-            <h1>Case Study: Quantum Entanglement & Non-Locality</h1>
-            <p style="font-style: italic; opacity: 0.8;">The Illusion of Separability</p>
-        </header>
+  <div class="container">
 
-        <main>
-            <section>
-                <h2>The Conventional Problem</h2>
-                
-                <h3>Standard Model (Quantum Mechanics)</h3>
-                <p>Quantum mechanics describes an entangled state with a non-separable wave function (e.g., <code>|Ψ⟩ = 1/√2 (|↑⟩ₐ|↓⟩ₑ + |↓⟩ₐ|↑⟩ₑ)</code>). To explain the results of a measurement, it introduces the mysterious, non-local "collapse of the wave function," a concept that has troubled physicists for a century.</p>
+    <header>
+      <h1>Quantum Entanglement in Dephaze Physics</h1>
+      <p style="font-style: italic; opacity: 0.8;">From paradox to theorem</p>
+    </header>
 
-                <h3>The Source of Disinformation</h3>
-                <p>The "mystery" of entanglement is not a property of reality. It is a piece of disinformation generated by the Standard Model's flawed foundational assumption: that reality is composed of separate, local particles. This initial error forces the model to invent a magical "spooky action" to reconnect what was never separate in the first place.</p>
-            </section>
-            
-            <section>
-                <h2>The Dephaze Solution: A Unified Field</h2>
-                <p>In Dephaze physics, non-locality is not an anomaly to be explained; it is the default, fundamental nature of reality. The system is described by a single, indivisible phase field, Ψ.</p>
+    <main>
+      <section>
+        <h2>I. The Conventional Paradox</h2>
+        <p>In standard quantum mechanics, entanglement is paradoxical because it assumes separable particles. To match observations, it introduces the mysterious "collapse of the wave function," a non-local process that lacks physical clarity.</p>
+      </section>
 
-                <h3>1. "Particles" as Local Excitations</h3>
-                <p>"Entangled particles" are a misnomer. They are simply two correlated local excitations within the *same continuous field*. They were never separate entities. Their properties are inherently linked because they are different aspects of the same underlying substrate.</p>
-                <div class="equation-box" style="font-size:1rem;">Ψ<sub>entangled_state</sub> = Ψ<sub>global</sub>(x) where Spin(xₐ) = -Spin(xₑ)</div>
-                
-                <h3>2. Measurement as a Global State Change</h3>
-                <p>The Universal Dephaze Equation describes how the entire field evolves. A measurement at one point (xₐ) is an interaction that forces the *entire global field* to transition to a new stable state (Ψ').</p>
-                <div class="equation-box">Interaction(Device, Ψ<sub>global</sub>) → Ψ'<sub>global</sub></div>
-                
-                <h3>Instantaneous Correlation as a Natural Consequence</h3>
-                <p>Since the field changes state as a single, unified entity, the correlations are automatically preserved everywhere. The properties at point xₑ instantly reflect the new global state because point xₑ *is* the new global state. There is no information transfer, no "spooky action," and no collapse. There is only the state change of a single, non-local field.</p>
-            </section>
-            
-            <section>
-                <h2>Conclusion: A Problem of Perspective</h2>
-                <p>The paradox of entanglement is entirely a product of the disinformation inherent in a particle-centric worldview. Dephaze resolves the problem by correcting the initial, flawed premise. Non-locality is not the puzzle; separability is the illusion.</p>
-                <table class="results-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Standard Model (Quantum Mechanics)</th>
-                            <th>Dephaze Model (The Reality)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Explanation for Non-Locality</td>
-                            <td>Invents the mysterious, axiomatic "collapse of the wave function."</td>
-                            <td>Derives it as a natural property of a single, global phase field.</td>
-                        </tr>
-                        <tr>
-                            <td>Source of the "Mystery"</td>
-                            <td>A real, "spooky" physical process.</td>
-                            <td>The model's own flawed assumption of separability (disinformation).</td>
-                        </tr>
-                         <tr>
-                            <td>Fundamental Entities</td>
-                            <td>Separate particles that become mysteriously linked.</td>
-                            <td>A single field whose local excitations are inherently linked.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-        </main>
+      <section>
+        <h2>II. Dephaze Approach</h2>
+        <p>Dephaze starts from a unified, non-local phase field Ψ. Local excitations ("particles") are not independent, but correlated aspects of the same field.</p>
+        <div class="equation-box">
+          Ψ = D∇²Ψ + G|Ψ|²Ψ - Mφ⁻³ + Φ³{Ω₀→Imago} - i[Λ,Ψ] + div(F) + KΨs + Σ
+        </div>
+      </section>
 
-        <footer>
-            <p>© 1992-2025 Dephaze Manufacture | Angus Dewer</p>
-        </footer>
+      <section>
+        <h2>III. Building the Bridge: PDE → Algebra</h2>
+        <p>We derive the algebraic rules (C1, C2) from the Dephaze PDE:</p>
+        <ul>
+          <li>C1: normalized, unbiased state (ω(𝟙)=1, ω(A)=0)</li>
+          <li>C2: two-outcome measurement as a reflector (A²=𝟙)</li>
+        </ul>
+        <p>The key is the ergodic CP-semigroup generated by local measurement coupling, whose fixed-point algebra is isomorphic to ℂ², producing projectors P₊, P₋ and reflector A=2P₊−𝟙.</p>
+      </section>
 
-    </div>
+      <section>
+        <h2>IV. Proofs & Stability</h2>
+        <h3>1. GNS and invariance</h3>
+        <p>The coherence commutator induces a *-derivation, generating automorphisms αₜ; the 0-energy constraint ensures an invariant state ω. GNS gives ω(𝟙)=1.</p>
+        <h3>2. Ergodic projector</h3>
+        <p>The measurement semigroup (CP, unital) yields an ergodic average E, a conditional expectation onto Fix(R).</p>
+        <h3>3. Bistability</h3>
+        <p>The PDE has a double-well effective potential. LaSalle invariance → two attractors Ψ⁺, Ψ⁻. With small noise, the process splits into two ergodic components ⇒ Fix(R) ≅ ℂ².</p>
+        <h3>4. Reflector & Bias</h3>
+        <p>Define A=2P₊−𝟙 ⇒ A²=𝟙. Flip symmetry ensures ω(A)=0. Thus C1 & C2 hold.</p>
+      </section>
 
+      <section>
+        <h2>V. Tsirelson Bound</h2>
+        <p>With C1 and C2 established, the CHSH operator satisfies:</p>
+        <div class="equation-box">
+          Ŝ² = 4𝟙 - [A,A′][B,B′],   ||Ŝ|| ≤ 2√2
+        </div>
+        <p>Therefore, in any Dephaze-consistent state, |S| ≤ 2√2. The entanglement "mystery" becomes a theorem.</p>
+      </section>
+
+      <section>
+        <h2>VI. Conclusion</h2>
+        <p>Entanglement is no longer paradoxical. In Dephaze physics, non-locality is natural; separability is the illusion. The Tsirelson bound arises as a structural theorem from the 0-point PDE and ergodic dynamics, not as an axiom.</p>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Standard QM</th>
+              <th>Dephaze Physics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Non-locality explained by</td>
+              <td>Ad-hoc collapse postulate</td>
+              <td>Global phase field dynamics</td>
+            </tr>
+            <tr>
+              <td>Source of paradox</td>
+              <td>Assumed separability of particles</td>
+              <td>Separability is illusion; field is indivisible</td>
+            </tr>
+            <tr>
+              <td>Measurement</td>
+              <td>Collapse of wave function</td>
+              <td>Idempotent relaxational transition</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 1992-2025 Dephaze Manufacture | Angus Dewer</p>
+    </footer>
+
+  </div>
 </body>
 </html>
