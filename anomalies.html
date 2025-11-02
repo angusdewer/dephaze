@@ -1,262 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dephaze - Astrodynamical Anomalies</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --background-color: #080a0e;
-            --text-color: #c8ced6;
-            --header-color: #eaf0fa;
-            --accent-color: #7ac5d8;
-            --glow-color: rgba(122, 197, 216, 0.35);
-            --code-bg: #10141c;
-            --border-color: #2a3040;
-        }
-
-        html, body {
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            line-height: 1.7;
-            margin: 0;
-            padding: 2em;
-            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
-        }
-        
-        .menu-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            color: var(--accent-color);
-            padding: 10px 15px;
-            font-family: 'Jura', sans-serif;
-            font-size: 0.9em;
-            text-decoration: none;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-button:hover {
-            background-color: var(--accent-color);
-            color: var(--background-color);
-            box-shadow: 0 0 15px var(--glow-color);
-            text-shadow: none;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Jura', sans-serif;
-            color: var(--header-color);
-            text-shadow: 0 0 12px var(--glow-color);
-            letter-spacing: 2px;
-            margin-top: 2em;
-            margin-bottom: 1em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5em;
-            font-weight: 700;
-        }
-        
-        .equation-box {
-            font-family: 'Roboto Mono', monospace;
-            background-color: var(--code-bg);
-            border-left: 3px solid var(--accent-color);
-            padding: 1.5em;
-            margin: 2em 0;
-            font-size: 1.1rem;
-            text-align: left;
-            letter-spacing: 1.5px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-        
-        .styled-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .styled-list li {
-            background: var(--code-bg);
-            border-left: 3px solid var(--accent-color);
-            padding: 10px 15px;
-            margin-bottom: 10px;
-        }
-        
-        .styled-list li strong {
-            color: var(--accent-color);
-            font-family: 'Roboto Mono', monospace;
-        }
-        
-        .anomaly-buttons a {
-            display: block;
-            background: var(--code-bg);
-            border-left: 3px solid var(--border-color);
-            padding: 15px 20px;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-family: 'Jura', sans-serif;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .anomaly-buttons a:hover {
-            color: var(--header-color);
-            border-left-color: var(--accent-color);
-            box-shadow: inset 3px 0 0 0 var(--accent-color), 0 0 15px var(--glow-color);
-            transform: translateX(5px);
-        }
-        
-        .logic-block {
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 0 1.5em 1.5em 1.5em;
-            margin-bottom: 1em;
-            background-color: rgba(122, 197, 216, 0.03);
-        }
-        
-        .logic-block h4 {
-            font-family: 'Jura', sans-serif;
-            color: var(--accent-color);
-            margin-bottom: 0.5em;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 4em;
-            padding-top: 2em;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: #6a738b;
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dephaze - Astrodynamical Anomalies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --background-color: #080a0e;
+    --text-color: #c8ced6;
+    --header-color: #eaf0fa;
+    --accent-color: #7ac5d8;
+    --glow-color: rgba(122, 197, 216, 0.35);
+    --code-bg: #10141c;
+    --border-color: #2a3040;
+}
+html, body { overflow-x: hidden; scroll-behavior: smooth; }
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0;
+    padding: 2em;
+    text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+}
+.menu-button {
+    position: fixed; top: 20px; left: 20px; z-index: 1000;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    color: var(--accent-color);
+    padding: 10px 15px;
+    font-family: 'Jura', sans-serif;
+    font-size: 0.9em;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.menu-button:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--glow-color);
+    text-shadow: none;
+}
+.container { max-width: 800px; margin: 0 auto; }
+h1, h2, h3 {
+    font-family: 'Jura', sans-serif;
+    color: var(--header-color);
+    text-shadow: 0 0 12px var(--glow-color);
+    letter-spacing: 2px;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5em;
+    font-weight: 700;
+}
+.equation-box {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--code-bg);
+    border-left: 3px solid var(--accent-color);
+    padding: 1.5em;
+    margin: 2em 0;
+    font-size: 1.1rem;
+    text-align: left;
+    letter-spacing: 1.5px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+.styled-list { list-style-type: none; padding-left: 0; }
+.styled-list li {
+    background: var(--code-bg);
+    border-left: 3px solid var(--accent-color);
+    padding: 10px 15px;
+    margin-bottom: 10px;
+}
+.styled-list li strong { color: var(--accent-color); font-family: 'Roboto Mono', monospace; }
+.anomaly-buttons a {
+    display: block;
+    background: var(--code-bg);
+    border-left: 3px solid var(--border-color);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: 'Jura', sans-serif;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.anomaly-buttons a:hover {
+    color: var(--header-color);
+    border-left-color: var(--accent-color);
+    box-shadow: inset 3px 0 0 0 var(--accent-color), 0 0 15px var(--glow-color);
+    transform: translateX(5px);
+}
+.anomaly-buttons a.important {
+    border-left-color: var(--accent-color);
+    background: linear-gradient(90deg, rgba(122,197,216,0.08) 0%, rgba(122,197,216,0.02) 100%);
+}
+.logic-block {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0 1.5em 1.5em 1.5em;
+    margin-bottom: 1em;
+    background-color: rgba(122, 197, 216, 0.03);
+}
+.logic-block h4 {
+    font-family: 'Jura', sans-serif;
+    color: var(--accent-color);
+    margin-bottom: 0.5em;
+}
+footer {
+    text-align: center;
+    margin-top: 4em;
+    padding-top: 2em;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+    color: #6a738b;
+}
+</style>
 </head>
 <body>
 
-    <a href="index.html" class="menu-button">← Back to Dephaze Core</a>
+<a href="index.html" class="menu-button">← Back to Dephaze Core</a>
 
-    <div class="container">
+<div class="container">
 
-        <header>
-            <h1>Astrodynamical Anomalies</h1>
-            <p style="font-style: italic; opacity: 0.8;">Dephaze-based Resolutions to Modern Cosmological Puzzles.</p>
-        </header>
+<header>
+<h1>Astrodynamical Anomalies</h1>
+<p style="font-style: italic; opacity: 0.8;">Dephaze-based Resolutions to Modern Cosmological Puzzles.</p>
+</header>
 
-        <main>
-            <section>
-                <h2>Overview</h2>
-                <p>
-                    Standard cosmological models rely on placeholder concepts such as dark matter and dark energy to reconcile observational data with flawed theoretical frameworks. 
-                    The Dephaze model resolves these anomalies not by adding exotic substances, but by correcting the foundational understanding of spacetime, inertia, and 
-                    goal-directed, adaptive dynamics.
-                </p>
-            </section>
-            
-            <section>
-                <h2>The Mathematical Framework</h2>
-                <h3>The Timeless 0-Point Equation</h3>
-                <div class="equation-box" style="font-size: 1rem; text-align: center;">
-                    Ψ(φ³) = D∇²[Ψ(φ⁻³)] + G|Ψ(φ⁻³)|²Ψ(φ⁻³) − Mφ⁻³ + Φ³<sub>{Ω₀→Imago}</sub> − i[Λ,Ψ] + div(F) + KΨ<sub>s</sub> + Σ
-                </div>
+<main>
+<section>
+<h2>Overview</h2>
+<p>
+Standard cosmological models rely on placeholder concepts such as dark matter and dark energy to reconcile observational data with flawed theoretical frameworks. 
+The Dephaze model resolves these anomalies not by adding exotic substances, but by correcting the foundational understanding of spacetime, inertia, and 
+goal-directed, adaptive dynamics.
+</p>
+</section>
 
-                <h3>Key Idea: No Time Parameter</h3>
-                <p>
-                    Instead of embedding anomalies into a temporal framework (hidden accelerations, delays, or thermal drifts), the Dephaze approach removes time as an explicit 
-                    variable. Each measurement is a <strong>timeless exposure of the 0-point topology</strong>. The system is reconstructed not as a continuous flow in t, but 
-                    as a sequence of <strong>independent samplings</strong>.
-                </p>
+<section>
+<h2>The Mathematical Framework</h2>
+<h3>The Timeless 0-Point Equation</h3>
+<div class="equation-box" style="font-size: 1rem; text-align: center;">
+Ψ(φ³) = D∇²[Ψ(φ⁻³)] + G|Ψ(φ⁻³)|²Ψ(φ⁻³) − Mφ⁻³ + Φ³<sub>{Ω₀→Imago}</sub> − i[Λ,Ψ] + div(F) + KΨ<sub>s</sub> + Σ
+</div>
 
-                <h3>Interpretation of Terms</h3>
-                <ul class="styled-list">
-                    <li><strong>Ψ(φ³):</strong> Instantaneous 0-point field configuration.</li>
-                    <li><strong>D∇²[Ψ(φ⁻³)]:</strong> Spatial diffusion/topology sampling across φ⁻³ exposures.</li>
-                    <li><strong>G|Ψ(φ⁻³)|²Ψ(φ⁻³):</strong> Nonlinear self-interaction shaping the snapshot form.</li>
-                    <li><strong>Mφ⁻³:</strong> Inertial drag: resistance to re-alignment.</li>
-                    <li><strong>Φ³<sub>{Ω₀→Imago}</sub>:</strong> Projection operator: 0-point generating each exposure.</li>
-                    <li><strong>−i[Λ,Ψ]:</strong> Coherence feedback for phase consistency.</li>
-                    <li><strong>div(F):</strong> External flux perturbations (gravity assists, geomagnetic fields).</li>
-                    <li><strong>KΨ<sub>s</sub>:</strong> Memory of previous samplings encoded in φ³ topology.</li>
-                    <li><strong>Σ:</strong> Measurement noise, instrumental uncertainty.</li>
-                </ul>
+<h3>Key Idea: No Time Parameter</h3>
+<p>
+Instead of embedding anomalies into a temporal framework, the Dephaze approach removes time as an explicit variable. Each measurement is a <strong>timeless exposure of the 0-point topology</strong>.
+</p>
+</section>
 
-                <h3>Sampling Logic</h3>
-                <div class="logic-block">
-                    <h4>Why exclude time?</h4>
-                    <p>
-                        With explicit time, anomalies must be “explained away” as accelerations or delays. Without it, each data point is a timeless imprint of the field. 
-                        This removes speculative forces and restores consistency.
-                    </p>
-                </div>
-                <div class="logic-block">
-                    <h4>How is evolution reconstructed?</h4>
-                    <p>
-                        Through <strong>sampling</strong>: a trajectory is a collection of 0-point exposures. The apparent flow of time is simply the ordered sequence of 
-                        these snapshots. This explains why flyby Doppler shifts form coherent patterns without invoking hidden forces.
-                    </p>
-                </div>
-            </section>
+<section id="anomalies-list">
+<h2>Anomalies Addressed</h2>
+<div class="anomaly-buttons">
+    <a href="dark-matter.html">The Dark Matter Problem (Galaxy Rotation Curves)</a>
+    <a href="dark-energy.html">The Dark Energy Problem (Accelerated Expansion)</a>
+    <a href="flyby-anomaly.html">The Flyby Anomaly</a>
+    <a href="pioneer-anomaly.html">The Pioneer Anomaly</a>
+    <a href="quantum-entanglement.html">Quantum Entanglement & Non-Locality</a>
+    <!-- NEW ENTRY -->
+    <a href="cmb-anisotropy.html" class="important">👉 CMB Anisotropy – Φ³ Projection Evidence</a>
+</div>
+</section>
 
-            <section id="anomalies-list">
-                <h2>Anomalies Addressed</h2>
-                <div class="anomaly-buttons">
-                    <a href="dark-matter.html">The Dark Matter Problem (Galaxy Rotation Curves)</a>
-                    <a href="dark-energy.html">The Dark Energy Problem (Accelerated Expansion)</a>
-                    <a href="flyby-anomaly.html">The Flyby Anomaly</a>
-                    <a href="pioneer-anomaly.html">The Pioneer Anomaly</a>
-                    <a href="quantum-entanglement.html">Quantum Entanglement & Non-Locality</a>
-                </div>
-            </section>
-            
-        </main>
+</main>
 
-       <!-- ===========================================================
-     DEPHAZE LEGAL FOOTER
-     Author: Angus Dewer | Dephaze Manufacture
-     License: Dephaze License — Permission Required
-     =========================================================== -->
-
-<footer style="text-align:center; margin-top:3em; padding:2em 0; border-top:1px solid #2a3040; font-family:'Jura',sans-serif; font-size:0.9em; color:#7a8698; line-height:1.6;">
-  <p style="margin:0.5em 0;">
-    © 1992–2025 <strong>Angus Dewer</strong> / <strong>Dephaze Manufacture</strong>
-  </p>
+<footer>
+  <p style="margin:0.5em 0;">© 1992–2025 <strong>Angus Dewer</strong> / <strong>Dephaze Manufacture</strong></p>
   <p style="margin:0.5em 0; opacity:0.85;">
     <em>All rights reserved.</em> Reading and non-commercial exploration permitted.<br>
-    Use, reproduction, modification, or redistribution of any Dephaze material requires <strong>written permission</strong> from the author.
+    Use, reproduction, modification, or redistribution requires <strong>written permission</strong> from the author.
   </p>
   <p style="margin:0.5em 0;">
     Contact: <a href="mailto:dewerangus@gmail.com" style="color:#7ac5d8; text-decoration:none;">dewerangus@gmail.com</a>
   </p>
 </footer>
 
-<!-- Structured Legal Metadata for SEO -->
-<meta name="copyright" content="© 1992–2025 Angus Dewer / Dephaze Manufacture">
-<meta name="license" content="Dephaze License — Permission Required">
-<meta name="author" content="Angus Dewer">
-<meta name="description" content="The Dephaze framework — a self-regulating phase-field theory of reality by Angus Dewer. All rights reserved. Reading allowed, reproduction requires permission.">
-
-        </footer>
-
-    </div>
+</div>
 
 </body>
 </html>
