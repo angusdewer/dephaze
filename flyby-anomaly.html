@@ -1,72 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dephaze - The Flyby Anomaly</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --background-color: #080a0e;
-            --text-color: #c8ced6;
-            --header-color: #eaf0fa;
-            --accent-color: #7ac5d8;
-            --glow-color: rgba(122, 197, 216, 0.35);
-            --code-bg: #10141c;
-            --border-color: #2a3040;
-        }
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            line-height: 1.7;
-            margin: 0;
-            padding: 2em;
-        }
-        .menu-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            color: var(--accent-color);
-            padding: 10px 15px;
-            font-family: 'Jura', sans-serif;
-            font-size: 0.9em;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        .container { max-width: 900px; margin: 0 auto; }
-        h1,h2,h3 { font-family: 'Jura', sans-serif; color: var(--header-color); }
-        .equation-box {
-            font-family: 'Roboto Mono', monospace;
-            background-color: var(--code-bg);
-            border-left: 3px solid var(--accent-color);
-            padding: 1.5em;
-            margin: 2em 0;
-            text-align: center;
-        }
-        .results-table { width: 100%; border-collapse: collapse; margin-top: 2em; font-size: 0.9em; }
-        .results-table th, .results-table td {
-            border: 1px solid var(--border-color);
-            padding: 8px;
-            text-align: center;
-        }
-        .results-table th { background-color: var(--code-bg); color: var(--header-color); }
-        .results-table td:nth-child(5) { font-weight: bold; color: var(--accent-color); }
-        .logic-block {
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 1em;
-            margin: 1em 0;
-            background: rgba(122,197,216,0.03);
-        }
-        footer { text-align: center; margin-top: 4em; padding-top: 2em; border-top: 1px solid var(--border-color); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dephaze – The Flyby Anomaly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background-color: #080a0e;
+      --text-color: #c8ced6;
+      --header-color: #eaf0fa;
+      --accent-color: #7ac5d8;
+      --glow-color: rgba(122, 197, 216, 0.35);
+      --code-bg: #10141c;
+      --border-color: #2a3040;
+    }
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0;
+      padding: 2em;
+    }
+    .menu-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background-color: var(--code-bg);
+      border: 1px solid var(--border-color);
+      color: var(--accent-color);
+      padding: 10px 15px;
+      font-family: 'Jura', sans-serif;
+      font-size: 0.9em;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1,h2,h3 { font-family: 'Jura', sans-serif; color: var(--header-color); }
+    .equation-box {
+      font-family: 'Roboto Mono', monospace;
+      background-color: var(--code-bg);
+      border-left: 3px solid var(--accent-color);
+      padding: 1.5em;
+      margin: 2em 0;
+      text-align: center;
+    }
+    .results-table { width: 100%; border-collapse: collapse; margin-top: 2em; font-size: 0.9em; }
+    .results-table th, .results-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px;
+      text-align: center;
+    }
+    .results-table th { background-color: var(--code-bg); color: var(--header-color); }
+    .results-table td:nth-child(5) { font-weight: bold; color: var(--accent-color); }
+    .logic-block {
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 1em;
+      margin: 1em 0;
+      background: rgba(122,197,216,0.03);
+    }
+    footer {
+      text-align: center;
+      margin-top: 4em;
+      padding-top: 2em;
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
 </head>
 <body>
 
@@ -74,144 +79,125 @@
 
 <div class="container">
 <header>
-    <h1>The Flyby Anomaly</h1>
-    <p style="font-style: italic;">From Anderson’s Empirical Formula to the Dephaze 0-Point Resolution</p>
+  <h1>The Flyby Anomaly</h1>
+  <p style="font-style: italic;">From Anderson’s Empirical Formula to the Dephaze Zero-Point Resolution</p>
 </header>
 
 <main>
 <section>
-    <h2>Derivation from the Dephaze Core Equation</h2>
-    <p>
-        The timeless Dephaze equation:
-    </p>
-    <div class="equation-box">
-        Ψ(φ³) = D∇²[Ψ(φ⁻³)] + G|Ψ(φ⁻³)|²Ψ(φ⁻³) − Mφ⁻³ + Φ³<sub>{Ω₀→Imago}</sub> − i[Λ,Ψ] + div(F) + KΨ<sub>s</sub> + Σ
-    </div>
-    <p>
-        In a flyby event:
-    </p>
-    <ul>
-        <li><strong>div(F):</strong> external flux = Earth’s rotational field → yields the constant K = 2ω⊕R⊕/c</li>
-        <li><strong>∇²[Ψ]:</strong> difference in declinations (δi, δo) → produces the cos δ term</li>
-        <li><strong>−i[Λ,Ψ]:</strong> coherence operator → forces the system into one half-plane (ζ = ±1 or 0)</li>
-        <li><strong>Φ³:</strong> projection from the 0-point → ensures both entry and exit belong to the same topological origin</li>
-    </ul>
-    <p>
-        Thus, the Dephaze flyby law emerges directly:
-    </p>
-    <div class="equation-box">
-        ΔV = K · V∞ · (cos δ<sub>i</sub> − cos δ<sub>o</sub>) · ζ
-    </div>
-    <p>
-        Anderson’s formula is simply the partial case using div(F) + ∇²Ψ without the ζ gate. 
-        Dephaze generalizes it by including the coherence term, making the model predictive and consistent.
-    </p>
+  <h2>Derivation from the Dephaze Core Equation</h2>
+  <p>The timeless Dephaze field equation:</p>
+  <div class="equation-box">
+    Ψ(φ³) = D∇²[Ψ(φ⁻³)] + G|Ψ(φ⁻³)|²Ψ(φ⁻³) − Mφ⁻³ + Φ³<sub>{Ω₀→Imago}</sub> − i[Λ,Ψ] + div(F) + KΨ<sub>s</sub> + Σ
+  </div>
+  <p>During a planetary flyby:</p>
+  <ul>
+    <li><strong>div(F):</strong> external flux — Earth’s rotational field, giving the constant K = 2ω⊕R⊕/c</li>
+    <li><strong>∇²[Ψ]:</strong> difference in inbound/outbound declinations (δᵢ, δₒ) → produces the cos δ term</li>
+    <li><strong>−i[Λ,Ψ]:</strong> the coherence operator → restricts the system to one half-plane (ζ = ±1 or 0)</li>
+    <li><strong>Φ³:</strong> projection from the zero-point → ensures entry and exit share the same topological origin</li>
+  </ul>
+  <p>The complete Dephaze flyby law then follows:</p>
+  <div class="equation-box">
+    ΔV = K · V∞ · (cos δ<sub>i</sub> − cos δ<sub>o</sub>) · ζ
+  </div>
+  <p>
+    Anderson’s formula represents only the partial case using div(F)+∇²Ψ without the ζ-gate.
+    Dephaze generalizes it by adding the coherence term, making the model predictive and self-consistent.
+  </p>
 </section>
 
 <section>
-    <h2>Results</h2>
-    <table class="results-table">
-        <thead>
-            <tr>
-                <th>Mission</th><th>Observed</th><th>Anderson</th><th>ζ</th><th>Dephaze</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>Galileo I (1990)</td><td>+3.92</td><td>+4.13</td><td>+1</td><td>+4.13 ✓</td></tr>
-            <tr><td>Galileo II (1992)</td><td>−4.6</td><td>−2.52</td><td>−1</td><td>−2.52 (sign correct)</td></tr>
-            <tr><td>NEAR (1998)</td><td>+13.46</td><td>+13.29</td><td>+1</td><td>+13.29 ✓</td></tr>
-            <tr><td>Cassini (1999)</td><td>−2.00</td><td>+1.95</td><td>−1</td><td>−1.95 ✓</td></tr>
-            <tr><td>Rosetta I (2005)</td><td>+1.82</td><td>+2.07</td><td>+1</td><td>+2.07 ✓</td></tr>
-            <tr><td>Rosetta II (2007)</td><td>0.0</td><td>+0.06</td><td>0</td><td>0.0 ✓</td></tr>
-            <tr><td>Rosetta III (2009)</td><td>0.0</td><td>0.0</td><td>0</td><td>0.0 ✓</td></tr>
-            <tr><td>MESSENGER (2005)</td><td>+0.02</td><td>+0.055</td><td>0</td><td>0.0 ✓</td></tr>
-            <tr><td>Juno (2013)</td><td>0.0</td><td>+0.02</td><td>0</td><td>0.0 ✓</td></tr>
-        </tbody>
-    </table>
+  <h2>Results</h2>
+  <table class="results-table">
+    <thead>
+      <tr>
+        <th>Mission</th><th>Observed</th><th>Anderson</th><th>ζ</th><th>Dephaze</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Galileo I (1990)</td><td>+3.92</td><td>+4.13</td><td>+1</td><td>+4.13 ✓</td></tr>
+      <tr><td>Galileo II (1992)</td><td>−4.6</td><td>−2.52</td><td>−1</td><td>−2.52 (sign correct)</td></tr>
+      <tr><td>NEAR (1998)</td><td>+13.46</td><td>+13.29</td><td>+1</td><td>+13.29 ✓</td></tr>
+      <tr><td>Cassini (1999)</td><td>−2.00</td><td>+1.95</td><td>−1</td><td>−1.95 ✓</td></tr>
+      <tr><td>Rosetta I (2005)</td><td>+1.82</td><td>+2.07</td><td>+1</td><td>+2.07 ✓</td></tr>
+      <tr><td>Rosetta II (2007)</td><td>0.0</td><td>+0.06</td><td>0</td><td>0.0 ✓</td></tr>
+      <tr><td>Rosetta III (2009)</td><td>0.0</td><td>0.0</td><td>0</td><td>0.0 ✓</td></tr>
+      <tr><td>MESSENGER (2005)</td><td>+0.02</td><td>+0.055</td><td>0</td><td>0.0 ✓</td></tr>
+      <tr><td>Juno (2013)</td><td>0.0</td><td>+0.02</td><td>0</td><td>0.0 ✓</td></tr>
+    </tbody>
+  </table>
 </section>
 
 <section>
-    <h2>Criticisms & Audit Responses</h2>
-    <div class="logic-block">
-        <h4>Criticism 1: The |S|^(1/3) term looks arbitrary.</h4>
-        <p><strong>Response:</strong> It arises naturally from the φ³ cubic interaction term. It is the scaling of stable stationary solutions.</p>
-    </div>
-    <div class="logic-block">
-        <h4>Criticism 2: Is ζ post-hoc?</h4>
-        <p><strong>Response:</strong> No. ζ is computed from measurable δi, δo, and perigee latitude. It is operational and predictive, not retrofitted.</p>
-    </div>
-    <div class="logic-block">
-        <h4>Criticism 3: Why the threshold?</h4>
-        <p><strong>Response:</strong> Threshold is tied to DSN Doppler sensitivity, not arbitrary. |Δcosδ| below detection limit → ζ = 0.</p>
-    </div>
-    <div class="logic-block">
-        <h4>Criticism 4: What is the mechanism?</h4>
-        <p><strong>Response:</strong> The DSN coherent Doppler system forces a 0-point phase reference. Incoming and outgoing vectors interfere, producing the ζ-gate outcome.</p>
-    </div>
+  <h2>Critiques and Responses</h2>
+  <div class="logic-block">
+    <h4>Critique 1 – The |S|<sup>1/3</sup> term seems arbitrary</h4>
+    <p><strong>Response:</strong> It emerges naturally from the φ³ cubic interaction term, representing the scaling of stable stationary states.</p>
+  </div>
+  <div class="logic-block">
+    <h4>Critique 2 – Is ζ a post-hoc fit?</h4>
+    <p><strong>Response:</strong> No. ζ is computed directly from measurable δᵢ, δₒ and perigee latitude. It is operational and predictive, not retro-fitted.</p>
+  </div>
+  <div class="logic-block">
+    <h4>Critique 3 – Why introduce a threshold?</h4>
+    <p><strong>Response:</strong> The threshold corresponds to the DSN Doppler detection limit: |Δcos δ| below that limit ⇒ ζ = 0.</p>
+  </div>
+  <div class="logic-block">
+    <h4>Critique 4 – What is the physical mechanism?</h4>
+    <p><strong>Response:</strong> The DSN coherent Doppler system enforces a zero-point phase reference; incoming and outgoing vectors interfere, producing the ζ-gate outcome.</p>
+  </div>
 </section>
 
 <section>
-    <h2>Future Predictions</h2>
-    <p><strong>BepiColombo:</strong> ΔV ≈ 0 (cancellation) – confirmed.</p>
-    <p><strong>JUICE (2024):</strong> Predicted anomaly +0.7 to +3.0 mm/s (ζ = +1, North hemisphere).</p>
+  <h2>Future Predictions</h2>
+  <p><strong>BepiColombo:</strong> ΔV ≈ 0 (expected cancellation – no significant anomaly reported).</p>
+  <p><strong>JUICE (2024–2026):</strong> Predicted ΔV ≈ +0.7 to +3.0 mm/s (ζ = +1, northern hemisphere) — awaiting measurement.</p>
 </section>
 
 <section>
-    <h2>Conclusion</h2>
-    <p>
-        The flyby anomaly is not unexplained noise but direct evidence of φ³ topology at the 0-point. 
-        Anderson’s law was a partial glimpse; Dephaze provides the full predictive rule with ζ. 
-        This makes the anomaly a probe of spacetime’s deeper structure.
-    </p>
+  <h2>Conclusion</h2>
+  <p>
+    The flyby anomaly is not random noise but direct evidence of φ³ topology at the zero-point.  
+    Anderson’s law captured only a partial projection; the Dephaze formulation introduces the ζ-gate, providing a complete and predictive description.  
+    The anomaly thus becomes a measurable probe of spacetime’s deeper phase-field structure.
+  </p>
 </section>
 
 <section>
-    <h2>Notes on Data</h2>
-    <p>
-        The values shown here are based on Anderson (2008) and official mission reports. 
-        Secondary sources (e.g. Wikipedia) sometimes quote slightly different numbers (±0.2 mm/s). 
-        These discrepancies do not affect the Dephaze predictions of <strong>sign</strong> or <strong>cancellation</strong>. 
-        The paradigm shift lies in the ζ phase-gate rule, which is independent of fine numeric differences.
-    </p>
+  <h2>Data Notes</h2>
+  <p>
+    Values are based on Anderson (2008) and official mission reports.  
+    Secondary sources (e.g., Wikipedia) sometimes list slightly different numbers (±0.2 mm/s); these differences do not affect the Dephaze predictions of <strong>sign</strong> or <strong>cancellation</strong>.  
+    The paradigm shift lies in the ζ phase-gate rule, independent of small numeric variations.
+  </p>
 </section>
 
 <section>
-    <h2>Replication Call</h2>
-    <p>
-        Physicists and mission analysts are encouraged to recompute δ<sub>i</sub>, δ<sub>o</sub>, and ΔV 
-        directly from SPICE ephemerides and apply the ζ rule. 
-        The Dephaze method is <em>operationally defined</em> and can be independently verified. 
-        Our role here is to outline the principle; precise re-integration belongs to the measurement community.
-    </p>
+  <h2>Replication Call</h2>
+  <p>
+    Mission analysts are invited to recompute δ<sub>i</sub>, δ<sub>o</sub>, and ΔV directly from SPICE ephemerides and apply the ζ rule.  
+    The Dephaze method is <em>operationally defined</em> and open to independent verification.  
+    This page outlines the principle; precise trajectory re-integration lies with the data community.
+  </p>
 </section>
 </main>
 
-<!-- ===========================================================
-     DEPHAZE LEGAL FOOTER
-     Author: Angus Dewer | Dephaze Manufacture
-     License: Dephaze License — Permission Required
-     =========================================================== -->
-
-<footer style="text-align:center; margin-top:3em; padding:2em 0; border-top:1px solid #2a3040; font-family:'Jura',sans-serif; font-size:0.9em; color:#7a8698; line-height:1.6;">
-  <p style="margin:0.5em 0;">
-    © 1992–2025 <strong>Angus Dewer</strong> / <strong>Dephaze Manufacture</strong>
-  </p>
-  <p style="margin:0.5em 0; opacity:0.85;">
+<footer style="text-align:center;margin-top:3em;padding:2em 0;border-top:1px solid #2a3040;font-family:'Jura',sans-serif;font-size:0.9em;color:#7a8698;line-height:1.6;">
+  <p style="margin:0.5em 0;">© 1992–2025 <strong>Angus Dewer</strong> / <strong>Dephaze Manufacture</strong></p>
+  <p style="margin:0.5em 0;opacity:0.85;">
     <em>All rights reserved.</em> Reading and non-commercial exploration permitted.<br>
-    Use, reproduction, modification, or redistribution of any Dephaze material requires <strong>written permission</strong> from the author.
+    Use, reproduction, modification or redistribution requires <strong>written permission</strong> from the author.
   </p>
   <p style="margin:0.5em 0;">
-    Contact: <a href="mailto:dewerangus@gmail.com" style="color:#7ac5d8; text-decoration:none;">dewerangus@gmail.com</a>
+    Contact: <a href="mailto:dewerangus@gmail.com" style="color:#7ac5d8;text-decoration:none;">dewerangus@gmail.com</a>
   </p>
 </footer>
 
-<!-- Structured Legal Metadata for SEO -->
 <meta name="copyright" content="© 1992–2025 Angus Dewer / Dephaze Manufacture">
 <meta name="license" content="Dephaze License — Permission Required">
 <meta name="author" content="Angus Dewer">
-<meta name="description" content="The Dephaze framework — a self-regulating phase-field theory of reality by Angus Dewer. All rights reserved. Reading allowed, reproduction requires permission.">
-
-</footer>
+<meta name="description" content="Dephaze — A self-regulating phase-field theory of reality by Angus Dewer. All rights reserved. Reading allowed, reproduction requires permission.">
 </div>
 </body>
 </html>

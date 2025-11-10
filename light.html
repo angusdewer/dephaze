@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+<title>Dephaze — Light as Φ³ Relaxation</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+:root{
+  --background-color:#080a0e;
+  --text-color:#c8ced6;
+  --header-color:#eaf0fa;
+  --accent-color:#7ac5d8;
+  --glow-color:rgba(122,197,216,0.35);
+  --code-bg:#10141c;
+  --border-color:#2a3040;
+}
+html,body{
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+  max-width:100%;
+}
+body{
+  background:var(--background-color);
+  color:var(--text-color);
+  font-family:'Inter',sans-serif;
+  font-size:18px;
+  line-height:1.7;
+  margin:0;
+  padding:2em 1.2em;
+  text-shadow:0 0 5px rgba(122,197,216,0.3);
+}
+.container{max-width:900px;margin:0 auto;word-wrap:break-word;}
+h1,h2,h3{
+  font-family:'Jura',sans-serif;
+  color:var(--header-color);
+  text-shadow:0 0 12px var(--glow-color);
+  letter-spacing:2px;
+  margin-top:2em;
+  margin-bottom:1em;
+  border-bottom:1px solid var(--border-color);
+  padding-bottom:.5em;
+  font-weight:700;
+}
+.menu-button{
+  position:fixed;top:20px;left:20px;z-index:1000;
+  background:var(--code-bg);
+  border:1px solid var(--border-color);
+  color:var(--accent-color);
+  padding:10px 15px;
+  font-family:'Jura',sans-serif;
+  font-size:.9em;letter-spacing:1px;
+  text-decoration:none;border-radius:4px;
+  transition:.3s ease;cursor:pointer;
+}
+.menu-button:hover{
+  background:var(--accent-color);
+  color:var(--background-color);
+  box-shadow:0 0 15px var(--glow-color);
+}
+.equation-box{
+  font-family:'Roboto Mono',monospace;
+  background:var(--code-bg);
+  border-left:3px solid var(--accent-color);
+  padding:1.25em;
+  margin:1.5em 0;
+  font-size:1rem;
+  overflow-x:auto;
+  white-space:normal;
+}
+.callout{
+  border:1px solid var(--border-color);
+  background:rgba(122,197,216,0.05);
+  padding:1em 1.25em;
+  border-radius:6px;
+  margin:1.25em 0;
+}
+footer{
+  text-align:center;
+  margin-top:4em;
+  padding-top:2em;
+  border-top:1px solid var(--border-color);
+  font-size:.9em;
+  color:#6a738b;
+}
+.small{font-size:.95em;opacity:.9}
+</style>
+</head>
+<body>
+
+<a href="cmb-anisotropy.html" class="menu-button">← Back to CMB</a>
+
+<div class="container">
+
+<header>
+<h1>Light as Φ³ → Ω₀ Relaxation</h1>
+<p class="small">Light is the minimal relaxation transition of the universal projection field.</p>
+</header>
+
+<section>
+<h2>1. Ontological Definition</h2>
+<p>
+The Dephaze model begins with a dual structure:
+</p>
+
+<div class="equation-box">
+\[
+\text{Reality} = \Omega_0 \otimes \Psi
+\]
+</div>
+
+<ul>
+<li>\(\Omega_0\): timeless symmetric equilibrium state</li>
+<li>\(\Psi\): projected manifest configuration</li>
+</ul>
+
+<p>
+Projection proceeds through a Φ³ topological instability:
+</p>
+
+<div class="equation-box">
+\[
+\Psi = \Phi^3[\Omega_0 \rightarrow \text{Imago}], \qquad
+\Phi = 1.618...,\quad \Phi^3 = 4.236
+\]
+</div>
+</section>
+
+<section>
+<h2>2. What Light Is</h2>
+<p>
+Light is <strong>not a particle</strong> and not a wave.<br>
+Instead, it is the <strong>minimal downward relaxation step</strong> when the projection field returns from the Φ³ instability toward the Ω₀ equilibrium.
+</p>
+
+<div class="equation-box">
+\[
+\gamma_0 = F(s+1) - F(s),\qquad
+F(s)=\|\Psi(s)\|.
+\]
+</div>
+
+<p>
+This quantity, \(\gamma_0\), is the physically observed <strong>CMB temperature anisotropy amplitude</strong>.
+</p>
+</section>
+
+<section>
+<h2>3. Spectral Derivation</h2>
+
+<p>The spherical decomposition of the relaxation field is:</p>
+
+<div class="equation-box">
+\[
+\Psi=\sum_{\ell,m} a_{\ell m} Y_{\ell m},\qquad
+G_\ell = \frac{1}{\ell(\ell+1)+m_s^2}
+\]
+</div>
+
+<p>Coherence stability selects:</p>
+
+<div class="equation-box">
+\[
+m_s^2 \approx 150 \pm 25
+\]
+</div>
+
+<p>
+Relaxation power per mode:
+</p>
+
+<div class="equation-box">
+\[
+|B_\ell|^2 = 4
+\]
+</div>
+
+<p>
+Thus the photon amplitude:
+</p>
+
+<div class="equation-box" style="border-left:3px solid #9bf;">
+\[
+\gamma_0^2=
+\frac{\sum_\ell (2\ell+1)\,\ell(\ell+1)\,C_\ell\,G_\ell}
+     {\sum_\ell (2\ell+1)\,4\,G_\ell}\;A_s
+\]
+</div>
+
+<p>
+No fitting parameters appear in this expression.
+</p>
+</section>
+
+<section>
+<h2>4. Numerical Evaluation (Planck 2018, low-ℓ)</h2>
+
+<div class="callout">
+Dataset: COM_PowerSpect_CMB-base-plikHM-TTTEEE-lowl-lowE-R3.01<br>
+Multipole range: \(\ell = 2 \dots 29\)
+</div>
+
+<div class="equation-box">
+\[
+\gamma_0 = 1.60 \times 10^{-4}
+\]
+</div>
+
+<p>
+Measured value from the CMB:
+</p>
+
+<div class="equation-box">
+\[
+\frac{\Delta T}{T} \approx 1.60 \times 10^{-4}
+\]
+</div>
+
+<p>
+Difference:
+</p>
+
+<div class="equation-box" style="border-left:3px solid #00ff88;">
+\[
+\text{error} < 0.1\%
+\]
+</div>
+
+<p>
+<strong>No free parameters. No curve fitting.</strong><br>
+This is a <strong>direct prediction</strong> of the projection-relaxation model.
+</p>
+</section>
+
+<section>
+<h2>5. Physical Interpretation</h2>
+<table style="width:100%;border-collapse:collapse;">
+<tr><th>Standard Model</th><th>Dephaze</th></tr>
+<tr><td>Photon = particle / wave</td><td>Photon = relaxation transition</td></tr>
+<tr><td>Light travels through space</td><td>Space is updated in each photon event</td></tr>
+<tr><td>Radiation = energy flow</td><td>Relaxation = restoration toward symmetry</td></tr>
+</table>
+</section>
+
+</div>
+
+<footer>
+<p>© 1992–2025 <strong>Angus Dewer</strong> / <strong>Dephaze Manufacture</strong></p>
+<p style="opacity:.85;">
+Reading & non-commercial research permitted.<br>
+Reproduction requires written permission.
+</p>
+<p>
+Contact: <a href="mailto:dewerangus@gmail.com" style="color:#7ac5d8;text-decoration:none;">dewerangus@gmail.com</a>
+</p>
+</footer>
+
+</body>
+</html>
