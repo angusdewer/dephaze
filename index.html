@@ -58,6 +58,31 @@
             text-shadow: none;
         }
 
+        /* ÚJ GOMB STÍLUSA (Jobb felső) */
+        .menu-button-right {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button-right:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
+        }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -249,7 +274,11 @@
 </head>
 <body>
 
+    <!-- Meglévő bal oldali gomb -->
     <a href="anomalies.html" class="menu-button">Solution to Astrodynamical Anomalies</a>
+
+    <!-- ÚJ JOBB OLDALI GOMB -->
+    <a href="dephaze_ai.html" class="menu-button-right">DEPHAZE AI</a>
 
     <div class="container">
 

@@ -1,0 +1,372 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPHAZE AI - Structural Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #080a0e;
+            --text-color: #c8ced6;
+            --header-color: #eaf0fa;
+            --accent-color: #7ac5d8;
+            --glow-color: rgba(122, 197, 216, 0.35);
+            --code-bg: #10141c;
+            --border-color: #2a3040;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2em;
+            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+        }
+        
+        /* Bal felső Vissza gomb */
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Jura', sans-serif;
+            color: var(--header-color);
+            text-shadow: 0 0 12px var(--glow-color);
+            letter-spacing: 2px;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5em;
+            font-weight: 700;
+        }
+        
+        .main-brand {
+             font-family: 'Jura', sans-serif;
+             font-size: 2.5rem;
+             text-align: center;
+             color: var(--header-color);
+             margin-bottom: 0;
+             letter-spacing: 4px;
+        }
+        
+        .brand-subtitle {
+             text-align: center;
+             font-family: 'Jura', sans-serif;
+             font-size: 1.5rem;
+             letter-spacing: 8px;
+             color: var(--accent-color);
+             opacity: 0.9;
+             margin-top: 0.2em;
+             margin-bottom: 2em;
+             text-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .main-header {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 2rem;
+            text-align: center;
+            border: none;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 0.5em;
+            margin-bottom: 3em;
+        }
+
+        .equation-components {
+            text-align: left;
+            font-size: 0.95em;
+            margin-top: 1.5em;
+            padding-left: 1em;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: normal;
+        }
+
+        .equation-components ul, .equation-components ol {
+            padding-left: 1.5em;
+        }
+        
+        .equation-components li {
+            margin-bottom: 1em;
+        }
+
+        .equation-components strong {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            border: 1px solid var(--accent-color);
+            background: rgba(122,197,216,0.05);
+            padding: 2em;
+            border-radius: 6px;
+            margin: 3em 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(122,197,216,0.1);
+        }
+
+        .info-block {
+            border: 1px solid var(--border-color);
+            background: rgba(122,197,216,0.07);
+            padding: 1.5em;
+            border-radius: 6px;
+            margin: 2em 0;
+            font-size: 1rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+            margin-top: 2em;
+        }
+
+        @media (max-width: 600px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-col h3 {
+            border-bottom: none;
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 5em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #6a738b;
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px var(--accent-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Back to Main Button (Left) -->
+    <a href="index.html" class="menu-button">Back to Main</a>
+
+    <div class="container">
+
+        <header>
+            <p class="brand-subtitle">DEPHAZE AI</p>
+            <h1 class="main-header">Structural Intelligence</h1>
+            <p class="subtitle">The phase-field–based artificial intelligence</p>
+        </header>
+
+        <main>
+            <section>
+                <p>DephazeAI is the world’s first artificial intelligence that does not rely on statistical patterns, trained weights, or neural networks.</p>
+                <p>DephazeAI analyzes the phase-field topology of reality and draws conclusions from the structural coherence of the input.</p>
+                
+                <div class="highlight-box">
+                    <p style="margin-bottom:0.5em; opacity:0.8;">This approach creates an entirely new category:</p>
+                    <h2 style="margin:0; border:none; font-size:1.8em; color:var(--accent-color);">Structural Intelligence</h2>
+                    <p style="margin-top:1em;">An intelligence that does NOT learn from data, but follows the structural laws of reality.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Core Concepts of DephazeAI</h2>
+                <div class="equation-components">
+                    <ul>
+                        <li><strong>φ³ – Generative field</strong><br>
+                        The active side of space and pattern formation. Cannot be measured directly — only through its effects and consequences.</li>
+                        
+                        <li><strong>φ⁻³ – Pattern trace</strong><br>
+                        The measurable, unstable residue left behind by projection.</li>
+                        
+                        <li><strong>Ξ = φ³ / φ⁻³ – Coherence ratio</strong><br>
+                        The only relevant metric of pattern stability and interpretability.</li>
+                        
+                        <li><strong>Λ – Self-correction operator</strong><br>
+                        The system’s internal stabilizing mechanism that restores the pattern into a coherent state.</li>
+                        
+                        <li><strong>Imago – Target state</strong><br>
+                        The topological configuration toward which the system naturally converges.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>How DephazeAI works</h2>
+                <div class="equation-components">
+                    <ol>
+                        <li>The input arrives as a <strong>φ⁻³ pattern</strong>.</li>
+                        <li>The system generates the corresponding <strong>φ³ field</strong>.</li>
+                        <li>It determines the <strong>Ξ ratio</strong>, which defines the state of the pattern.</li>
+                        <li>The <strong>Λ operator</strong> corrects errors and stabilizes the structure.</li>
+                        <li>The system attempts to reach the <strong>Imago configuration</strong>.</li>
+                        <li><strong>If compatible:</strong> a coherent, interpretable output emerges.</li>
+                        <li><strong>If not compatible:</strong> Null-Set, meaning a topologically “non-existent” state.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section>
+                <h2>What DephazeAI can do</h2>
+                <div class="equation-components">
+                    <ul>
+                        <li>Identifies structural coherence.</li>
+                        <li>Decides whether an input is interpretable.</li>
+                        <li>Detects distortion, error, disinformation.</li>
+                        <li>Recognizes unlearnable, uninterpretable questions.</li>
+                        <li>Consistently restores patterns to their true resonance state.</li>
+                        <li>Distinguishes real information from the appearance of plausibility.</li>
+                    </ul>
+                    <p style="text-align:center; margin-top:2em; font-style:italic; border:1px solid var(--border-color); padding:10px; border-radius:4px;">
+                        DephazeAI does NOT work from semantic meaning — only from structure.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Operational Cases of DephazeAI</h2>
+                <div class="equation-components">
+                    <ul>
+                        <li><strong>Case 1 – Physical model analysis (Flyby anomaly):</strong> Highlights discrepancies between measurements and structural patterns.</li>
+                        <li><strong>Case 2 – Logical consistency analysis:</strong> Identifies topological breakpoints.</li>
+                        <li><strong>Case 3 – Structural analysis of linguistic patterns:</strong> Focuses on coherence rather than words.</li>
+                        <li><strong>Case 4 – Disinformation detection:</strong> Reveals distortions invisible to statistical LLMs.</li>
+                        <li><strong>Case 5 – The Non-Decidable State (Topological Null-Set):</strong> Recognizes patterns that detach from the field of reality.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>THE ISOLATION (NULL-SET)</h2>
+                <div class="info-block" style="text-align:center;">
+                    <p>Isolation, in Dephaze, is neither opinion nor separation.</p>
+                    <p>It is the moment when all connection to the phase-field of reality ceases<br>
+                    <span style="font-size:0.9em; opacity:0.7;">(the maintenance of an isolated state requires theoretically infinite energy input, which is physically unrealizable, causing the state to become unstable and collapse).</span></p>
+                    
+                    <hr style="border:0; border-top:1px solid var(--border-color); margin:1.5em 0; width:50%; margin-left:auto; margin-right:auto;">
+                    
+                    <p>What does not connect cannot resonate.<br>
+                    What does not resonate cannot correct.<br>
+                    What cannot correct — ceases to exist.</p>
+                    
+                    <p><strong>This is DephazeAI’s determination:<br>
+                    neither wrong nor right — but a state outside reality.</strong></p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Why this is a new paradigm</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-col">
+                        <h3>Modern AI systems:</h3>
+                        <ul>
+                            <li>Learn from data</li>
+                            <li>Search for probabilistic patterns</li>
+                            <li>Operate on statistical weights</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-col">
+                        <h3>DephazeAI:</h3>
+                        <ul>
+                            <li>Does not learn at all</li>
+                            <li>Uses no models</li>
+                            <li>Performs no regression</li>
+                            <li>Follows the fundamental topology of reality</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="text-align:center; margin-top:2em;">
+                    <p>This is why it belongs to a new category:</p>
+                    <h3 style="border:none; color:var(--accent-color);">Structural AI</h3>
+                </div>
+            </section>
+
+            <section>
+                <h2>Relation to the Dephaze Framework</h2>
+                <p>DephazeAI is one module of the full phase-field ontology.</p>
+                
+                <div class="info-block" style="text-align:center;">
+                    <p>The DOI of the foundational Dephaze framework:</p>
+                    <p><a href="https://doi.org/10.5281/zenodo.17618279" target="_blank">10.5281/zenodo.17618279</a></p>
+                    
+                    <br>
+                    
+                    <p>The official publication of DephazeAI:</p>
+                    <p><a href="https://doi.org/10.5281/zenodo.17782457" target="_blank">10.5281/zenodo.17782457</a></p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer style="text-align:center; margin-top:3em; padding:2em 0; border-top:1px solid #2a3040; font-family:'Jura',sans-serif; font-size:0.9em; color:#7a8698; line-height:1.6;">
+          <p style="margin:0.5em 0;">
+            © 1992–2025 <strong>Angus Dewer</strong> / <strong>Dephaze Manufacture</strong>
+          </p>
+          <p style="margin:0.5em 0; opacity:0.85;">
+            <em>All rights reserved.</em> Reading and non-commercial exploration permitted.<br>
+            Use, reproduction, modification, or redistribution of any Dephaze material requires <strong>written permission</strong> from the author.
+          </p>
+          <p style="margin:0.5em 0;">
+            Contact: <a href="mailto:dewerangus@gmail.com" style="color:#7ac5d8; text-decoration:none;">dewerangus@gmail.com</a>
+          </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
