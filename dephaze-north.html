@@ -1,0 +1,541 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dephaze NORTH - Generative Data Reconstruction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #080a0e;
+            --text-color: #c8ced6;
+            --header-color: #eaf0fa;
+            --accent-color: #7ac5d8;
+            --glow-color: rgba(122, 197, 216, 0.35);
+            --code-bg: #10141c;
+            --border-color: #2a3040;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2em;
+            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+        }
+        
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding-top: 4em;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Jura', sans-serif;
+            color: var(--header-color);
+            text-shadow: 0 0 12px var(--glow-color);
+            letter-spacing: 2px;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5em;
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.5em; text-align: center; border: none; margin-bottom: 0.2em; }
+        
+        .subtitle {
+            text-align: center;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            margin-bottom: 3em;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .quote-block {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.4em;
+            margin: 2em 0;
+            padding: 1em;
+            border-left: 2px solid var(--accent-color);
+            border-right: 2px solid var(--accent-color);
+            background: rgba(122, 197, 216, 0.05);
+        }
+
+        .info-block {
+            border: 1px solid var(--border-color);
+            background: rgba(122,197,216,0.07);
+            padding: 1.5em;
+            border-radius: 6px;
+            margin: 2.5em 0;
+            box-shadow: 0 0 12px rgba(122,197,216,0.15);
+        }
+
+        ul { list-style-type: none; padding-left: 1em; }
+        li { margin-bottom: 0.8em; position: relative; }
+        li::before { content: "›"; color: var(--accent-color); position: absolute; left: -1.2em; font-weight: bold; }
+
+        .equation-box {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent-color);
+            padding: 1.5em;
+            margin: 2em 0;
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2em 0;
+            font-size: 0.95em;
+            background-color: var(--code-bg);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: rgba(122, 197, 216, 0.1);
+            color: var(--accent-color);
+            font-family: 'Jura', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        tr:hover { background-color: rgba(122, 197, 216, 0.05); }
+
+        strong { color: var(--accent-color); font-weight: 600; }
+
+        .roadmap-item { margin-bottom: 1.5em; }
+        .roadmap-phase { font-family: 'Jura', sans-serif; font-size: 1.1em; color: var(--header-color); margin-bottom: 0.3em; display: block; }
+        
+        footer {
+            text-align: center;
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #6a738b;
+        }
+
+        .center-text { text-align: center; }
+
+        pre {
+            background: var(--code-bg);
+            padding: 1em;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Vissza gomb a bal felső sarokban -->
+    <a href="index.html" class="menu-button">← Return to Main</a>
+
+    <div class="container">
+
+        <header>
+            <h1>Dephaze NORTH</h1>
+            <p class="subtitle">Generative Data Reconstruction via Topological Eigenvectors</p>
+            
+            <div class="quote-block">
+                "We store the seed, not the tree."
+            </div>
+            
+            <p class="center-text">A fundamentally different approach to information storage — not compression, but regeneration.</p>
+        </header>
+
+        <section>
+            <h2>What is NORTH?</h2>
+            <p><strong>Traditional storage:</strong> Your data is compressed and saved.</p>
+            <p><strong>NORTH:</strong> Your data's structural DNA is extracted, the original is discarded, and later perfectly regenerated from a deterministic field.</p>
+            <p>Think of it like biology: A human's DNA is ~750 MB. The full human body "data" (every cell position, protein state, neural connection) would be exabytes. Yet the DNA alone is sufficient to build a human. That's a compression ratio of ~10¹⁵:1 — not by removing information, but by storing generative instructions instead of the final form.</p>
+            <p>NORTH does this for digital data.</p>
+        </section>
+
+        <section>
+            <h2>The Core Concept (Non-Technical)</h2>
+            <div class="info-block">
+                <p><strong>Imagine you want to store a forest.</strong><br>
+                <em>(1993, Angus Dewer, In the Shadow of the Poor)</em></p>
+                
+                <p><strong>Traditional Compression:</strong></p>
+                <ul>
+                    <li>Create full data survey and input according to needs: jpg, 3D scans, videos, biological data, etc.</li>
+                    <li>Reduce file size (JPEG, video compression, ZIP, etc.)</li>
+                    <li>Store the compressed images and data.</li>
+                    <li>Decompression when needed.</li>
+                </ul>
+
+                <p><strong>NORTH Approach:</strong></p>
+                <ul>
+                    <li>Analysis of the forest dataset.</li>
+                    <li>Extraction of the minimal seed configuration (the "Northpole").</li>
+                    <li>Discarding the forest data entirely.</li>
+                    <li><strong>Later:</strong> Regenerating the exact forest by applying the seed pattern to a deterministic substrate.</li>
+                </ul>
+                <p>The retrieved forest is bit-perfect identical to the original. But you never stored the forest itself — only its generative code.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Biology-Computer Analogy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>System</th>
+                        <th>"Data" Size</th>
+                        <th>"DNA" Size</th>
+                        <th>Compression Ratio</th>
+                        <th>Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Human Body</strong></td>
+                        <td>~10²⁴ bytes (all molecular states)</td>
+                        <td>~750 MB (genome)</td>
+                        <td>~10¹⁵:1</td>
+                        <td>Genetic code → cell growth</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NORTH (Concept)</strong></td>
+                        <td>D bytes (full data)</td>
+                        <td>N bytes (Northpole)</td>
+                        <td>Variable</td>
+                        <td>Topological eigenvector → substrate regeneration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Traditional Compression</strong></td>
+                        <td>D bytes</td>
+                        <td>0.3-0.8·D bytes</td>
+                        <td>1.2-3:1</td>
+                        <td>Statistical redundancy removal</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Why does DNA achieve this?</h3>
+            <p>Because it doesn't store "put atom X at position Y" — it stores "apply rule R in context C". The actual structure emerges from deterministic biochemical processes (the substrate = Ω₀). NORTH does the same for digital information.</p>
+        </section>
+
+        <section>
+            <h2>Quick Start: Understanding the Framework</h2>
+            
+            <h3>The Three Components</h3>
+            <ul>
+                <li><strong>Ω₀ (Substrate Field):</strong> A deterministic mathematical field (like physics laws). Generated algorithmically — requires zero storage. Think: The "laws of biology" that read DNA.</li>
+                <li><strong>N(D) (Northpole):</strong> The minimal topological eigenvector of your data. Like DNA: contains structural instructions, not literal data. This is what you store (the only thing that takes space).</li>
+                <li><strong>Ψ (Generative Operator):</strong> The reconstruction mechanism. Applies the Northpole to the substrate. Think: The cellular machinery that reads DNA and builds proteins.</li>
+            </ul>
+
+            <h3>The Equation</h3>
+            <div class="equation-box">
+                D = Ψ(Ω₀, N(D))
+            </div>
+            <p class="center-text">Where:</p>
+            <ul style="max-width: 600px; margin: 0 auto;">
+                <li><strong>D</strong> = Your original data (text, image, binary, anything)</li>
+                <li><strong>N(D)</strong> = The Northpole (extracted structural code)</li>
+                <li><strong>Ψ(Ω₀, N)</strong> = Regeneration process</li>
+            </ul>
+            <p class="center-text" style="margin-top: 1em;"><strong>Result:</strong> Bit-perfect reconstruction. Hash(original) = Hash(regenerated).</p>
+        </section>
+
+        <section>
+            <h2>What Makes This Different?</h2>
+            
+            <h3>vs. Traditional Compression</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>ZIP/JPEG/etc</th>
+                        <th>NORTH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Philosophy</strong></td>
+                        <td>Reduce redundancy</td>
+                        <td>Extract generative structure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Storage</strong></td>
+                        <td>Compressed artifact</td>
+                        <td>Topological eigenvector</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Retrieval</strong></td>
+                        <td>Decompress</td>
+                        <td>Regenerate from substrate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Substrate</strong></td>
+                        <td>None needed</td>
+                        <td>Deterministic field (Ω₀)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bio-analogy</strong></td>
+                        <td>Shrink the tree</td>
+                        <td>Store the seed</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>vs. Neural Compression (AI-based)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Neural Compression</th>
+                        <th>NORTH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Training</strong></td>
+                        <td>Requires datasets</td>
+                        <td>No training needed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Determinism</strong></td>
+                        <td>Probabilistic</td>
+                        <td>Fully deterministic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fidelity</strong></td>
+                        <td>Approximate</td>
+                        <td>Bit-perfect</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mechanism</strong></td>
+                        <td>Learned patterns</td>
+                        <td>Topological mathematics</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Current Status (December 2025)</h2>
+            
+            <div class="info-block" style="border-left: 4px solid #7ac5d8;">
+                <h3>What's Validated</h3>
+                <ul>
+                    <li><strong>Proof of Concept:</strong> Operational (v0.1)</li>
+                    <li><strong>Test Cases:</strong> Text, images, binaries, audio — all reconstructed with SHA-256 identity</li>
+                    <li><strong>Mathematical Framework:</strong> Formalized in defensive publication</li>
+                    <li><strong>Prior Art:</strong> Established via Zenodo (DOI: 10.5281/zenodo.17844047)</li>
+                </ul>
+            </div>
+
+            <div class="info-block" style="border-left: 4px solid #4a5568;">
+                <h3>What's Proprietary</h3>
+                <p>The concept and mathematics are public (Prior Art). The implementation algorithms remain trade secrets:</p>
+                <ul>
+                    <li>Northpole extraction method</li>
+                    <li>Ω₀ field generation specifics</li>
+                    <li>Ψ operator optimization techniques</li>
+                </ul>
+            </div>
+        </section>
+
+                    
+            
+            <h3>Where NORTH Excels </h3>
+            <ul>
+                <li>Highly structured data (code, schematics, formatted documents)</li>
+                <li>Self-similar patterns (fractals, procedural textures)</li>
+                <li>Multi-scale hierarchies (nested organizational structures)</li>
+            </ul>
+
+             
+             
+        </section>
+
+        <section>
+            <h2>The DNA Math (Appendix)</h2>
+            <p>Let's make the analogy precise:</p>
+            
+            <p><strong>Human Genome</strong><br>
+            DNA: 3.2 billion base pairs × 2 bits/pair ≈ 800 MB<br>
+            Epigenome (methylation patterns): ~100 MB<br>
+            Regulatory networks: ~50 MB<br>
+            Total "genetic Northpole": <strong>~1 GB</strong></p>
+
+            <p><strong>Human "Full State"</strong><br>
+            ~37 trillion cells × 10 KB/cell (rough molecular state) = 370 petabytes<br>
+            Neural connectome alone: ~100 petabytes<br>
+            Total "data if stored literally": <strong>~1 exabyte (10¹⁸ bytes)</strong></p>
+
+            <p><strong>Compression Ratio</strong><br>
+            1 exabyte / 1 gigabyte = 10⁹ (billion-to-one)</p>
+            
+            <p>But it's not compression — it's <strong>regeneration</strong>. The 1 GB doesn't "contain" the exabyte in compressed form. It contains the rules to build it via biochemical substrate (Ω₀ = cellular machinery + physics).</p>
+        </section>
+
+        <section>
+            <h2>Repository Contents</h2>
+            <ul>
+                <li><code>README.md</code> - This file (conceptual overview)</li>            
+                <li><code>LICENSE.md</code> - CC BY-NC-SA 4.0 with patent provisions</li>
+                <li><code>CITATION.cff</code> - Citation metadata</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Citation & References</h2>
+            <p>If you reference NORTH in academic work:</p>
+            <div class="info-block" style="font-family: 'Roboto Mono', monospace; font-size: 0.9em;">
+                Dewer, A. (2025). Dephaze NORTH: Generative Topological Data Reconstruction. Zenodo.<br>
+                <a href="https://doi.org/10.5281/zenodo.17844047" style="color:var(--accent-color); text-decoration:none;">https://doi.org/10.5281/zenodo.17844047</a>
+            </div>
+            <p><strong>Author Identifier:</strong><br>
+            Angus Dewer <a href="https://orcid.org/0009-0008-8238-1770" style="color:var(--accent-color); text-decoration:none;">https://orcid.org/0009-0008-8238-1770</a></p>
+        </section>
+
+        <section>
+            <h2>Licensing & Defensive Publication</h2>
+            
+            <div class="info-block">
+                <h3>Open Science, Protected Innovation</h3>
+                <p><strong>Public (Free):</strong></p>
+                <ul>
+                    <li>Concepts and mathematical framework (CC BY-NC-SA 4.0)</li>
+                    <li>Academic research and education</li>
+                    <li>Non-commercial exploration</li>
+                </ul>
+
+                <p><strong>Requires License:</strong></p>
+                <ul>
+                    <li>Commercial products using NORTH principles</li>
+                    <li>Patent applications in related domains</li>
+                    <li>Integration into proprietary systems</li>
+                </ul>
+                <p>Licensing inquiries: <a href="mailto:angus@dephaze.eu" style="color:var(--accent-color);">angus@dephaze.eu</a></p>
+            </div>
+
+            <h3>Defensive Publication</h3>
+            <p>This work establishes Prior Art under:</p>
+            <ul>
+                <li>35 U.S.C. § 102(a)(1)</li>
+                <li>EPO Guidelines Part G, IV</li>
+                <li>PCT Article 15(2)</li>
+            </ul>
+            <p>Patent applications filed after December 2025 claiming generative reconstruction via topological eigenvectors will be challenged.</p>
+        </section>
+
+        <section>
+            <h2>Development Roadmap</h2>
+            
+            <div class="roadmap-item">
+                <span class="roadmap-phase">Phase 1: Validation(2025) </span>
+                <ul>
+                    <li>Proof of concept operational</li>
+                    <li>Mathematical framework formalized</li>
+                    <li>Prior art established</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-item">
+                <span class="roadmap-phase">Phase 2: Optimization </span>
+                <ul>
+                    <li>Northpole dimensionality reduction</li>
+                    <li>Computational efficiency improvements</li>
+                    <li>Benchmark suite development</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-item">
+                <span class="roadmap-phase">Phase 3: Practical Tools </span>
+                <ul>
+                    <li>Command-line interface</li>
+                    <li>Format-specific optimizations</li>
+                    <li>Integration libraries</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>FAQ</h2>
+            <h3>Q: Can I try it?</h3>
+            <p>A: Implementation is proprietary. The conceptual framework is public for research/education.</p>
+            
+            <h3>Q: Will you open-source it?</h3>
+            <p>A: Not currently planned. Core algorithms remain trade secrets. Mathematical framework is public.</p>
+            
+            <h3>Q: How is this not just really fancy compression?</h3>
+            <p>A: Compression = remove redundancy from static data. NORTH = extract generative code, discard data, regenerate from substrate. Like DNA vs. photographing every cell.</p>
+            
+            <h3>Q: What about the substrate storage cost?</h3>
+            <p>A: Ω₀ is algorithmically generated — zero storage. Like you don't "store" the laws of physics to use them.</p>
+        </section>
+        
+        
+        </div>
+
+    </div>
+
+    <footer>
+        <p style="margin:0.5em 0;">
+            © 1992–2025 <strong>Angus Dewer</strong> / <strong>Dephaze Manufacture</strong>
+        </p>
+        <p style="margin:0.5em 0; opacity:0.85;">
+            <em>All rights reserved.</em> Reading and non-commercial exploration permitted.<br>
+            Use, reproduction, modification, or redistribution of any Dephaze material requires <strong>written permission</strong> from the author.
+        </p>
+        <p style="margin:0.5em 0;">
+            Contact: <a href="mailto:dewerangus@gmail.com" style="color:#7ac5d8; text-decoration:none;">dewerangus@gmail.com</a>
+        </p>
+    </footer>
+
+</body>
+</html>
