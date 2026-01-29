@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DephazEAudi0 - DEPHAZE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Jura:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #080a0e;
+            --text-color: #c8ced6;
+            --header-color: #eaf0fa;
+            --accent-color: #7ac5d8;
+            --glow-color: rgba(122, 197, 216, 0.35);
+            --code-bg: #10141c;
+            --border-color: #2a3040;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2em;
+            text-shadow: 0 0 5px rgba(122, 197, 216, 0.3);
+        }
+
+        /* LEFT FIXED BUTTON (same style as main) */
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            font-family: 'Jura', sans-serif;
+            font-size: 0.9em;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            text-shadow: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Jura', sans-serif;
+            color: var(--header-color);
+            text-shadow: 0 0 12px var(--glow-color);
+            letter-spacing: 2px;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5em;
+            font-weight: 700;
+        }
+
+        .main-header {
+            font-family: 'Jura', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            border: none;
+            margin-top: 1.2em;
+            margin-bottom: 0.3em;
+            letter-spacing: 4px;
+            color: var(--header-color);
+            text-shadow: 0 0 16px var(--glow-color);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 0.5em;
+            margin-bottom: 3em;
+        }
+
+        .level-title {
+            font-family: 'Jura', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.2em;
+            letter-spacing: 1px;
+        }
+
+        .equation-box {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent-color);
+            padding: 1.5em;
+            margin: 2em 0;
+            font-size: 1.03rem;
+            text-align: left;
+            letter-spacing: 0.6px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            box-shadow: 0 0 15px rgba(122, 197, 216, 0.1);
+            border-radius: 4px;
+        }
+
+        .equation-components {
+            text-align: left;
+            font-size: 0.95em;
+            margin-top: 1.2em;
+            padding-left: 0.6em;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: normal;
+        }
+
+        .equation-components ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .equation-components li {
+            margin-bottom: 0.8em;
+        }
+
+        .equation-components strong {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .info-block {
+            border: 1px solid var(--border-color);
+            background: rgba(122,197,216,0.07);
+            padding: 1.5em;
+            border-radius: 6px;
+            margin: 2.5em 0;
+            box-shadow: 0 0 12px rgba(122,197,216,0.15);
+            font-size: 1.02rem;
+            line-height: 1.75;
+        }
+
+        .info-block pre {
+            background: var(--code-bg);
+            padding: 1.2em;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-color);
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #6a738b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LEFT: back button to main page -->
+    <a href="index.html" class="menu-button">← Back to Main</a>
+
+    <div class="container">
+
+        <header>
+            <h1 class="main-header">DephazEAudi0</h1>
+            <p class="subtitle">
+                This is not analysis. This is the processing itself.<br>
+                What you hear is what you see. &nbsp;•&nbsp; No lookahead &nbsp;•&nbsp; No memory &nbsp;•&nbsp; Zero latency
+            </p>
+        </header>
+
+        <main>
+
+            <section>
+                <h2>What DephazEAudi0 is</h2>
+                <div class="info-block">
+                    <p><strong>DephazEAudi0 is a Dephaze projection-dynamics audio core.</strong><br>
+                    It is not defined by its wrapper (Python / Android / native / host), but by a single invariant processing law that can be embedded anywhere.</p>
+
+                    <p>It does not treat sound as an “amplitude over time” object. It treats each sample as a <strong>projection event</strong> (Ψₙ), evaluated against a symmetry reference (Ω₀) inside a Φ³-structured topology.</p>
+                </div>
+
+                <div class="equation-components">
+                    <ul>
+                        <li><strong>Core claim:</strong> audio is processed as <strong>projection state</strong>, not as a time-function.</li>
+                        <li><strong>Consequence:</strong> no envelope logic, no attack/release time constants, no predictive staging is required.</li>
+                        <li><strong>Result:</strong> coherent behavior emerges from topology + invariants, not from time-based heuristics.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Scale-invariant magnitude domain (10⁻⁵⁵ → 10⁵⁵)</h2>
+
+                <p>In classical audio pipelines, the numeric corridor is narrow (typically normalized around ±1.0), and stability is enforced by thresholds, clipping rules, and gain staging.</p>
+
+                <p><strong>DephazEAudi0 explicitly runs in a scale-invariant projection domain:</strong> extremely small fluctuations and extremely large excursions coexist inside the same operational space without switching logic.</p>
+
+                <div class="equation-box">
+Magnitude domain:
+
+10⁻⁵⁵  ←──────────────  Ψ  ───────────────→  10⁵⁵
+
+• micro-structure and near-zero detail
+• full-scale waveform energy
+• mathematically large transient excursions
+
+All are handled by the same invariant rule.
+                </div>
+
+                <div class="info-block">
+                    <p>This is not “just normalization”. The engine uses a <strong>log-geometry mapping</strong> so that magnitude becomes a stable coordinate in Φ³ topology.</p>
+                    <p>So values are never “too small” or “too large” — only nearer or farther from the Ω₀ symmetry manifold.</p>
+                </div>
+
+                <h3>One minimal form of the mapping</h3>
+                <p>One compact way to express the scale operation (illustrative form):</p>
+
+                <div class="equation-box">
+Let Φ ≈ 1.618..., so Φ³ ≈ 4.236...
+
+Given raw sample x:
+
+μ(x) = sgn(x) · log_{Φ³}( 1 + |x| )
+
+• preserves ordering
+• expands micro-detail near zero
+• compresses dominance at large magnitudes
+• keeps the domain bounded and aperiodic
+                </div>
+
+                <div class="equation-components">
+                    <span class="level-title">Why it matters</span>
+                    <ul>
+                        <li><strong>No thresholds:</strong> because magnitude is a coordinate, not a danger zone.</li>
+                        <li><strong>No limiter logic:</strong> because excursions are mapped geometrically, not clipped.</li>
+                        <li><strong>Single law across scales:</strong> micro and macro remain coherent under the same Ξ regulation.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Why Φ³</h2>
+                <div class="info-block">
+                    <p><strong>Φ³ is used as the topology scale because it avoids short-cycle closure.</strong><br>
+                    In audio terms: it suppresses stable repeating numerical loops that create “digital ringing artifacts”. In Dephaze terms: Φ³ corresponds to the minimal high-instability but still coherent spiral order.</p>
+                </div>
+
+                <div class="equation-box">
+Φ ≈ 1.6180339887...
+Φ³ ≈ 4.2360679...
+
+Φ³ behavior (in this context):
+• non-repeating (aperiodic) update cadence
+• bounded stability (no runaway)
+• topology that naturally relaxes toward symmetry
+                </div>
+            </section>
+
+            <section>
+                <h2>Axiomatic alignment with Dephaze</h2>
+
+                <div class="info-block">
+                    <p><strong>DephazEAudi0 is the Dephaze axioms expressed in audio.</strong> Not “inspired by” — directly mapped.</p>
+                </div>
+
+                <h3>AXIOM_0 — TIMELESS_DUALITY</h3>
+                <div class="equation-components">
+                    <ul>
+                        <li><strong>Reality = Ω₀ ⊗ Ψ</strong> → Ω₀ is the invariant symmetry reference; Ψₙ is the current sample-event state.</li>
+                        <li>Processing measures deviation from Ω₀ and relaxes Ψₙ accordingly — Ω₀ itself remains invariant.</li>
+                    </ul>
+                </div>
+
+                <h3>AXIOM_1 — PROJECTION_ONTOLOGY</h3>
+                <div class="equation-components">
+                    <ul>
+                        <li><strong>Ψ = Φ³[Ω₀ → Imago]</strong> → each sample is evaluated as a projection in Φ³ topology.</li>
+                        <li>“Time” is the sampling sequence, not a required processing dimension.</li>
+                    </ul>
+                </div>
+
+                <h3>AXIOM_2 — GENERATION vs PATTERN</h3>
+                <div class="equation-components">
+                    <ul>
+                        <li><strong>Ξ = φ³ / φ⁻³</strong> → regulation targets coherence ratio, not level or band-energy heuristics.</li>
+                        <li>φ³ acts as generative geometry; φ⁻³ is the measurable trace. The engine keeps their balance critical.</li>
+                    </ul>
+                </div>
+
+                <h3>AXIOM_4 — SELF_REGULATION</h3>
+                <div class="equation-components">
+                    <ul>
+                        <li>Instead of attack/release loops, DephazEAudi0 performs instantaneous relaxation toward <strong>Ξ ≈ 1</strong>.</li>
+                        <li>This is why coherent behavior can exist without lookahead or memory as a conceptual requirement.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Core processing model (sample-event form)</h2>
+
+                <p>Each PCM sample is treated as a self-contained event with a deterministic projection map:</p>
+
+                <div class="equation-box">
+Given input sample xₙ:
+
+1) Embed:      xₙ → Ψₙ  (Φ³-geometry embedding)
+2) Measure:    Δₙ = dist(Ψₙ, Ω₀) + curvature(Ψₙ vs Ω₀)
+3) Regulate:   Ψ'ₙ = Relax(Ψₙ, Ω₀; Ξ-control)
+4) Project out:yₙ = Π(Ψ'ₙ)  (audible-domain projection)
+                </div>
+
+                <div class="equation-components">
+                    <ul>
+                        <li><strong>No lookahead:</strong> regulation is local relaxation, not future optimization.</li>
+                        <li><strong>No memory:</strong> coherence is enforced by topology + Ξ, not time smoothing.</li>
+                        <li><strong>Wrappers differ:</strong> Python/Android/host differ in I/O and UI only — core is invariant.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Closing</h2>
+                <div class="info-block">
+                    <p><strong>DephazEAudi0 works because the axioms are structurally correct.</strong><br>
+                    Not as a claim — as an operational consequence: the core produces stable, coherent behavior using the minimal projection law, without needing time-based heuristics as the engine.</p>
+                    <p>This page is informational: it documents the engine’s internal logic and its axiom-consistent structure.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER: kept exactly as on the main page -->
+        <footer style="text-align:center; margin-top:3em; padding:2em 0; border-top:1px solid #2a3040; font-family:'Jura',sans-serif; font-size:0.9em; color:#7a8698; line-height:1.6;">
+          <p style="margin:0.5em 0;">
+            © 1992–2026 <strong>Angus Dewer</strong> / <strong>Dephaze Manufacture</strong>
+          </p>
+          <p style="margin:0.5em 0; opacity:0.85;">
+            <em>All rights reserved.</em> Reading and non-commercial exploration permitted.<br>
+            Use, reproduction, modification, or redistribution of any Dephaze material requires <strong>written permission</strong> from the author.
+          </p>
+          <p style="margin:0.5em 0;">
+            Contact: <a href="mailto:dewerangus@gmail.com" style="color:#7ac5d8; text-decoration:none;">dewerangus@gmail.com</a>
+          </p>
+        </footer>
+
+        <meta name="copyright" content="© 1992–2026 Angus Dewer / Dephaze Manufacture">
+        <meta name="license" content="Dephaze License — Permission Required">
+        <meta name="author" content="Angus Dewer">
+        <meta name="description" content="DephazEAudi0 — Dephaze projection-dynamics audio core. Informational page describing the engine logic and axiomatic alignment.">
+
+    </div>
+
+</body>
+</html>
